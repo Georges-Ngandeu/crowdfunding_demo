@@ -1,0 +1,175 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CrowdFunding</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('mystyles.css') }}" />
+    <link rel="icon" href="" type="image/x-icon"/>
+
+<body>
+<div id="wrapper">
+    <header id="header" class="site-header">
+        <div class="top-header clearfix">
+            <div class="container">
+                <ul class="socials-top">
+                    <li><a target="_Blank" href="https://www.facebook.com/CRIFATCameroun/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="http://www.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.youtube.com/channel/UC63W--2pmVK-xrU5xL0CiUA"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="phone">
+                    Appeler le  (+237) 233 40 01 51
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="site-brand">
+                <a href="{{ path('home') }}"><img src="{{ asset('images/crifat.jpg') }}" alt=""></a>
+            </div><!-- .site-brand -->
+            <div class="right-header">
+                <nav class="main-menu">
+                    <button class="c-hamburger c-hamburger--htx"><span></span></button>
+                    <ul>
+                        {% if is_granted("ROLE_SUBSCRIBER_USER") %}
+                            <li>
+                                <i class="fa-li fa fa-check-square"></i>
+                                <a href="#">Mon compte<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Nom: {{ app.user.username }}</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav><!-- .main-menu -->
+                {% if is_granted("ROLE_SUBSCRIBER_USER") %}
+                {% else %}
+                    <div class="login login-button">
+                        <a href="{{ path('loginUser') }}" class="btn-primary">Se connecter</a>
+                    </div>
+                {% endif %}
+            </div><!--. right-header -->
+        </div><!-- .container -->
+    </header><!-- .site-header -->
+
+    <main id="main" class="site-main">
+        <div class="page-title background-page">
+            <div class="container">
+                <h1>Tous nos projets</h1>
+            </div>
+        </div><!-- .page-title -->
+        <div class="campaigns">
+            <div class="container">
+                <div class="campaign-content">
+                    <div class="row">
+                        {% if projects|length > 0 %}
+                            {% for project in projects %}
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular filterlatest">
+                                <div class="campaign-item">
+                                    <a class="overlay" href="{{ path('detail', {'id': project.getId()}) }}">
+                                        <img src="companies_documents/{{ project.getProjectName()|formattedProjectName }}/{{ project.getProjectMainimage()}}" alt="">
+                                        <span class="ion-ios-search-strong"></span>
+                                    </a>
+                                    <div class="campaign-box">
+                                        <h3><a href="#">{{ project.getProjectName()}}</a></h3>
+                                        <div class="campaign-description">
+                                            {{ project.getProjectShortdescription()}}
+                                        </div>
+                                        <div class="process mb-4">
+                                            <div class="raised"><span style="width:{{ 320 - ((project.getProjectEngaged() * 540)/project.getProjectCost()) }}px;"></span></div>
+                                            <div class="">
+                                                <div class="">
+                                                    <span style="font-weight: 500;">Somme engagé:</span> {{ project.getProjectEngaged() | number_format(0, '.', ',') }}Xaf/{{ project.getProjectCost() | number_format(0, '.', ',') }}Xaf
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="process mb-3">
+                                            <div class="raised"><span style="width:{{ 320 - (((((project.getProjectEnddate().diff(project.getProjectStartdate())).days) - ((project.getProjectEnddate().diff(project.getProjectStartdate())).days - (project.getProjectStartdate().diff(project.getTodaysDate())).days)) * 540)/(project.getProjectEnddate().diff(project.getProjectStartdate())).days) }}px;"></span></div>
+                                            <div class="">
+                                                <div class="">
+                                                    <span style="font-weight: 500;">Jours restant:</span> {{ (project.getProjectEnddate().diff(project.getProjectStartdate())).days - (project.getProjectStartdate().diff(project.getTodaysDate())).days}} /{{ (project.getProjectEnddate().diff(project.getProjectStartdate())).days }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="process mb-2">
+                                            <div class="">
+                                                <div class="">
+                                                    <span style="font-weight: 500;">Cout de l'action: {{ project.getProjectCost()/project.getProjectNumberaction() }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="process mb-2">
+                                            <div class="">
+                                                <div class="">
+                                                    <span style="font-weight: 500;">Nombre minimum d'action: {{ project.getProjectMinnumberaction() }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="process mb-2">
+                                            <div class="">
+                                                <div class="">
+                                                    <span style="font-weight: 500;">Nombre de contributions: {{ project.getNumberContributions() }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                {# <div class="latest-button"><a href="#" class="btn-primary">Plus de projets</a></div> #}
+            </div>
+        </div><!-- .latest -->
+    </main><!-- .site-main -->
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <p class="copyright">2020 by Afrikpay. All Rights Reserved.</p>
+                <a href="#" class="back-top">Back to top<span class="ion-android-arrow-up"></span></a>
+            </div>
+        </div>
+    </footer><!-- site-footer -->
+</div><!-- #wrapper -->
+<!-- jQuery -->
+<script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ asset('libs/popper/popper.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/carousel.min.js') }}"></script>
+<script src="{{ asset('libs/jquery.countdown/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('libs/wow/wow.min.js') }}"></script>
+<script src="{{ asset('libs/isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('libs/bxslider/jquery.bxslider.min.js') }}"></script>
+<script src="{{ asset('libs/magicsuggest/magicsuggest-min.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.core.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.js') }}"></script>
+<!-- orther script -->
+<script src="{{ asset('js/main.js') }}"></script>
+<script>
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>
+</body>
+</html>

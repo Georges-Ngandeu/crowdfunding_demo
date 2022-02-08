@@ -1,0 +1,80 @@
+{% extends 'home/base.html.twig' %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>{{ project.getName()}}</h1>
+        </div>
+    </div><!-- .page-title -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 main-content">
+                <div class="" style="background-color: #f5f6f6; padding: 36px 30px;">
+                    <article class="post">
+                        <div class="shop-detail-img">
+                            <div id="owl-shop" class="shop-slider">
+                                <div id="owl-campaign" class="campaign-slider">
+                                    {% for key, image in project.images[project.getName()] %}
+                                        <div class="item"><img src="../../companies_documents/{{ package.getUrl(project.getName())|formattedProjectName }}/{{ image }}" alt=""></div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <h3 style="margin-bottom: 1rem; margin-top: 1rem;">Description courte du projet</h3>
+                        <p>
+                            {{ project.getShortDescription() }}
+                        </p>
+                    </article>
+                </div>
+            </div><!-- .main-content -->
+            <div class="col-lg-4 sidebar">
+                <aside class="widget widget-action">
+                    <div class="widget-content">
+                        <div class="action-desc">
+                            <p>J'utilise mon compte mobile money</p>
+                        </div>
+                        <button type="submit" data-toggle="modal1" data-target="#modal1" class="btn-primary"><span class="ion-bag"></span>Je contribue</button>
+                    </div>
+                </aside><!-- .widget-search -->
+                <aside class="widget widget-action">
+                    <div class="widget-content">
+                        <div class="action-desc">
+                            <p>J'utilise mon compte bancaire</p>
+                        </div>
+                        <button type="submit" data-toggle="modal2" data-target="#modal2" class="btn-primary"><span class="ion-bag"></span>Je contribue</button>
+                    </div>
+                </aside><!-- .widget-search -->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Moyen de paiement et montant pour valider</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                {{ form_start(form, {'attr': {'id': 'userForm'}}) }}
+
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+
+                <div class="modal-body">
+                    {{ form_row(form.payment_method) }}
+                    {{ form_row(form.phone) }}
+                    {{ form_row(form.amount) }}
+                </div>
+                <div class="modal-footer">
+                    {{ form_row(form.pay) }}
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

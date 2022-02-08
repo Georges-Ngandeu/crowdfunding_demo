@@ -1,0 +1,102 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des projets{% endblock %}
+
+{% block body %}
+    <div class="row mb-2 mt-2">
+        <div class="col-12">
+            <a href="{{ path('createProject') }}" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Créer un projet</a>
+            <a href="{{ path('createAuthor') }}" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Créer un manager de projet</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box table-responsive">
+                <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="datatable" class="table table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="">Nom</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="">Description courte</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="">Montant engagé</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Cout</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Nombre d'action</th>
+                                    {#<th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Image principal</th>#}
+                                    {#<th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Images descriptives</th>#}
+                                    {#<th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Documents</th>#}
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="">Date de creation</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="">Début de campagne</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="">Fin de campagne</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="">Status</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 165px;">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% if projects|length > 0 %}
+                                        {% for project in projects %}
+                                            <tr role="row" class="odd">
+                                                <td >{{ project.getName() }}</td>
+                                                <td>{{ project.getShortDescription() }}</td>
+                                                <td >{{ project.getEngaged() | number_format(0, '.', ',') }}</td>
+                                                <td>{{ project.getCost() | number_format(0, '.', ',') }}</td>
+                                                <td>{{ project.getNumberAction() }}</td>
+                                                {#<td>{{ project.getMainImage() }}</td>#}
+                                                {#<td>#}
+                                                    {#{% for image in project.getImages()[project.getName()] %}#}
+                                                         {#<span class="ml-1">{{ image }}</span>#}
+                                                    {#{% endfor %}#}
+                                                {#</td>#}
+                                                {#<td>#}
+                                                    {#{% for doc in project.getDocuments()[project.getName()] %}#}
+                                                        {#<span class="ml-1">{{ doc }}</span>#}
+                                                    {#{% endfor %}#}
+                                                {#</td>#}
+                                                <td>{{ project.getCreationDate() | date('Y-m-d H:i:s')}}</td>
+                                                <td>{{ project.getStartDate() | date('Y-m-d H:i:s')}}</td>
+                                                <td>{{ project.getEndDate() | date('Y-m-d H:i:s')}}</td>
+                                                <td class="{{ project.getPublish() ? 'bg-info':'' }}">{{ project.getPublish() ? 'visible':'invisible' }}</td>
+                                                <td>
+                                                    <a class="btn btn-icon waves-effect waves-light btn-primary m-b-5" href="{{ path('projectStatus', {'id': project.getId()}) }}"> <i class="fa fa-check"></i> </a>
+                                                    <a class="btn btn-icon waves-effect waves-light btn-success m-b-5" href="{{ path('projectEdit', {'id': project.getId()}) }}"> <i class="fa fa-edit"></i> </a>
+                                                    <a class="btn btn-icon waves-effect waves-light btn-danger m-b-5" href="#"> <i class="fa fa-remove"></i> </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr role="row" class="odd">
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                            <td>aucune donnée</td>
+                                        </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                       </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Required datatable js -->
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        } );
+
+    </script>
+{% endblock %}
+

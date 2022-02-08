@@ -1,0 +1,51 @@
+<!doctype html>
+<html style="font-size: 14px;" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Email Template</title>
+    <!-- Bootstrap core CSS -->    <!-- Custom styles for this template -->  </head>  <body>
+     <div class="container h-100 mt-5" style="max-width: 960px; padding: 2rem; margin-left:auto; margin-right: auto;">
+          <div class="row h-100 justify-content-center align-items-center">
+            <p>
+               <img src="https://ci4.googleusercontent.com/proxy/xCees7i9qCTQdlohO12Wqh2G6wsoTHiEw6TrAnOI0ylamviFQmYceGvXOzT-KN3hsNbgRGISch47o6si5ftCNbI5sg=s0-d-e1-ft#https://afrikpay.tagpay.fr/img/logo_afrikpay.gif" class="largeLogo" style="width:22rem">
+            </p>
+          </div>          <div class="row">
+              <div class="ml-auto" style=""><span style="float: right;"></span></div>
+          </div>          <div class="border-top bg-light p-3" style="border-top:2px solid hsla(0, 0%, 0%,0.3); margin-top:2rem;">
+            <p class="" style="font-weight: bolder">
+                   {% block content %}
+                       {{content}} 
+                   {% endblock %} 
+            </p>
+            <div style="border-top:2px solid hsla(0, 0%, 0%,0.3)">
+              <p><span class="font-italic" style="font-size: 0.8rem;">Veuillez ne pas répondre à cet email. Les messages reçus à cette adresse ne sont pas lus et ne reçoivent donc aucune réponse. Pour obtenir de l'aide, connectez-vous à Afrikpay et cliquez sur le lien FAQ ou simplement sur le lien suivant <a href="">http://www.afrikpay.com/faq</a></span></p>
+              <p class="font-italic" style="font-size: 0.8rem;">Pour ne pas recevoir des notifications par email, merci de nous contacter à l’adresse <a href="">support@afrikpay.com</a></p>
+            </div>
+          </div>          <div class="border-top mb-5 bg-light p-3" style="border-top:2px solid hsla(0, 0%, 0%,0.3)">
+            <p class="mt-2" style="font-size: 0.8rem;">Copyright © 2012 Afrikpay. Tous droits réservés.</p>
+            <p style="font-size: 0.8rem; margin-bottom: -0.5rem;">King Triple</p>
+            <p style="font-size: 0.8rem; margin-bottom: -0.5rem;">Parc le repiquet, 3ième étage immeuble SGBC</p>
+            <p style="font-size: 0.8rem; margin-bottom: -0.5rem;">BP : 35 439 Yaoundé - Cameroun</p>
+            <p style="font-size: 0.8rem; margin-bottom: -0.5rem;">tél. : + 237 2 43 01 51 07</p>
+            <p style="font-size: 0.8rem;">email : <a href="">contact@afrikpay.com</a></p>
+            <p style="font-size: 0.8rem; margin-bottom: -0.5rem;">support: <a href="">support@afrikpay.com</a> / +237 6 58 88 07 08</p>
+            <p style="font-size: 0.8rem;">site web : <a href="">www.afrikpay.com</a></p>
+            <p>
+               <img src="https://ci4.googleusercontent.com/proxy/xCees7i9qCTQdlohO12Wqh2G6wsoTHiEw6TrAnOI0ylamviFQmYceGvXOzT-KN3hsNbgRGISch47o6si5ftCNbI5sg=s0-d-e1-ft#https://afrikpay.tagpay.fr/img/logo_afrikpay.gif" style="width: 15rem;" class="smallLogo">
+            </p>
+          </div>
+    </div>
+</body>
+</html>

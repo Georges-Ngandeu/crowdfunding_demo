@@ -1,0 +1,62 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Creation d'un manager de souscription{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        legend.col-form-label{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        #manager_form_first_name{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        #manager_form_last_name{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-20">
+                    {{ form_start(form, {'attr': {'id': 'projectForm'}}) }}
+
+                    <div class="my-custom-class-for-errors">
+                        {{ form_errors(form) }}
+                    </div>
+
+                    {{ form_row(form.first_name) }}
+                    {{ form_row(form.last_name) }}
+                    {{ form_row(form.user_name) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.phone) }}
+                    {{ form_row(form.region) }}
+                    {{ form_row(form.password) }}
+
+                    {{ form_end(form) }}
+                </div>
+            </div> <!-- end card-box -->
+        </div> <!-- end col -->
+    </div>
+{% endblock %}

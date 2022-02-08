@@ -1,0 +1,145 @@
+{% extends 'home/base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        legend.col-form-label{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        #user_form_subscriber_image{
+            height: calc(2.25rem + 2px);
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+        }
+    </style>
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>Créer un compte</h1>
+        </div>
+    </div><!-- .page-title -->
+
+    <div class="container">
+        <div class="main-content">
+            <div class="form-login form-register">
+                <h2>Créer un compte</h2>
+                {{ form_start(form, {'attr': {'id': 'userForm'}}) }}
+
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.civility) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.firstname) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.lastname) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.enterprise) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.director_firstname) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.director_lastname) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.birthdate) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.birth_place) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ form_row(form.identity_card_number) }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form_row(form.identitycard_deliver_date) }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form_row(form.identitycard_deliver_place) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.telephone) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.email) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.profession) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.town) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.marital_status) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.professional_status) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.revenu) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.revenu_origine) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.subscriber_image) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.language) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.username) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.password) }}
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

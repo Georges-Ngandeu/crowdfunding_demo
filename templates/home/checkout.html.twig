@@ -1,0 +1,263 @@
+{% extends 'home/base.html.twig' %}
+
+ {% block stylesheets %}
+     <style>
+         #bank_receipt_form_bank_receipt{
+             min-width: 14rem;
+             max-width: 100%;
+             height: calc(2.25rem + 2px);
+             margin: 0;
+             opacity: 1;
+             margin-left: 0.5rem;
+             margin-top: 0.5rem;
+         }
+
+         a.bank{
+             color: #00a6eb;
+             text-decoration: none;
+         }
+     </style>
+ {% endblock %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>{{ subscription.getProjectId().getProjectName()}}</h1>
+        </div>
+    </div><!-- .page-title -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 main-content" style="margin-bottom: 5rem;">
+                <div class="" style="background-color: #f5f6f6; padding: 36px 30px;">
+                    <article class="post">
+                        <div class="shop-detail-img">
+                            <div id="owl-shop" class="shop-slider">
+                                <div id="owl-campaign" class="campaign-slider">
+                                    {% for key, image in subscription.getProjectId().getProjectImages()[subscription.getProjectId().getProjectName()] %}
+                                        <div class="item"><img src="../../companies_documents/{{ package.getUrl(subscription.getProjectId().getProjectName())|formattedProjectName }}/{{ image }}" alt=""></div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <h3 style="margin-bottom: 1rem; margin-top: 1rem;">Description courte du projet</h3>
+                        <p>
+                            {{ subscription.getProjectId().getProjectShortdescription() }}
+                        </p>
+                    </article>
+                </div>
+            </div><!-- .main-content -->
+            <div class="col-lg-4 sidebar">
+                <aside class="widget widget-action">
+                    <div class="widget-content">
+                        <div>
+                            <form id="loginForm" class="clearfix">
+                                {#<label>Numéro de téléphone au format international</label>#}
+                                {#<div class="input-group mb-4">#}
+                                    {#<div class="input-group-addon">237</div>#}
+                                    {#<input type="text" class="form-control" placeholder="Enter le numéro de téléphone" v-model="phone">#}
+                                {#</div>#}
+                                {#<label>Montant en Xaf</label>#}
+                                {#<div class="input-group mb-4">#}
+                                    {#<div class="input-group-addon">Xaf</div>#}
+                                    {#<input type="text" class="form-control" id="" placeholder="Entrer le montant" v-model="amount">#}
+                                {#</div>#}
+                                <h3>Je paye avec</h3>
+                                <div class="" style="border-top: 1px solid hsla(0, 0%, 0%, 0.1); padding-top: 0.8rem;">
+                                    <div class="float-left mb-2">
+                                        <span>
+                                            <a href="#" style="display: inline;"><img src="/images/afrikpay.png" style="width: 3rem;" data-toggle="modal" data-target="#exampleModal"></a>
+                                        </span>
+                                        <span>
+                                            <a href="#" style="display: inline;"><img src="/images/om.png" style="width: 3rem;" data-toggle="modal" data-target="#exampleModal2"></a>
+                                        </span>
+                                        <span>
+                                            <a href="#" style="display: inline;"><img src="/images/momo.png" style="width: 3rem;" data-toggle="modal" data-target="#exampleModal3"></a>
+                                        </span>
+                                        <span>
+                                            <a href="#" style="display: inline;"><img src="/images/eum.png" style="width: 3rem;" data-toggle="modal" data-target="#exampleModal4"></a>
+                                        </span>
+                                        <span>
+                                            <a  style="display: inline;"><img src="/images/visa.png" style="width: 3rem;"></a>
+                                        </span>
+                                        <span>
+                                            <a  style="display: inline;"><img src="/images/master.png" style="width: 3rem;"></a>
+                                        </span>
+                                        <p class="mt-1">
+                                            <a  style="display: inline;"><img src="/images/paypal.png" style="width: 3rem;"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </aside><!-- .widget-search -->
+                <aside class="widget widget-action">
+                    <div class="widget-content">
+                        <div class="action-desc">
+                            <h3>Je paye par la banque</h3>
+                            <p class="mt-1">
+                                    Effectuer le paiement puis uploader le recu de paiement
+                            </p>
+                            <p class="mt-2"><a href="#" class="bank">Télécharger les conditions de paiement</a></p>
+                            <div class="mt-3">
+                                <div class="row">
+                                    <div class="col-md-6"><span>RIB:</span></div>
+                                    <div class="col-md-6"><span>Code banque</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><span>Code agence:</span></div>
+                                    <div class="col-md-6"><span>N° Compte:</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><span>Clé:</span></div>
+                                    <div class="col-md-6"><span>Iban:</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" data-toggle="modal" data-target="#modal5" class="btn-primary"><span class="ion-bag"></span>Je paye</button>
+                    </div>
+                </aside><!-- .widget-search -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Paiement via Afrikpay</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(afrikpayform, {'attr': {'id': 'userForm'}}) }}
+
+                    {{ form_row(afrikpayform.phone_number) }}
+                    {{ form_row(afrikpayform.amount) }}
+                    {{ form_row(afrikpayform.form_type) }}
+
+                    {{ form_end(afrikpayform) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Paiement via Orange</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(omform, {'attr': {'id': 'userForm'}}) }}
+
+                    {{ form_row(omform.phone_number) }}
+                    {{ form_row(omform.amount) }}
+                    {{ form_row(omform.form_type) }}
+
+                    {{ form_end(omform) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Paiement via Momo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(mtnform, {'attr': {'id': 'userForm'}}) }}
+
+                    {{ form_row(mtnform.phone_number) }}
+                    {{ form_row(mtnform.amount) }}
+                    {{ form_row(mtnform.form_type) }}
+
+                    {{ form_end(mtnform) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Paiement via Eum</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(eumform, {'attr': {'id': 'userForm'}}) }}
+
+                    {{ form_row(eumform.phone_number) }}
+                    {{ form_row(eumform.amount) }}
+                    {{ form_row(eumform.form_type) }}
+
+                    {{ form_end(eumform) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Paiement via la banque</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(bankReceiptForm, {'attr': {'id': 'userForm'}}) }}
+
+                    {{ form_row(bankReceiptForm.amount) }}
+                    {{ form_row(bankReceiptForm.bank_receipt) }}
+
+                    {{ form_end(bankReceiptForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        function makePages() {
+            $.each(this.owl.userItems, function(i) {
+                $('.owl-controls .owl-page').eq(i)
+                    .css({
+                        'background': 'url(' + $(this).find('img').attr('src') + ')',
+                        'background-size': 'cover',
+                    })
+            });
+        };
+        $(document).ready(function() {
+            $("#owl-campaign").owlCarousel({
+                navigation: true,
+                navigationText: ['<span class="ion-ios-arrow-back"></span>', '<span class="ion-ios-arrow-forward"></span>'],
+                loop:true,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                singleItem: true,
+                afterInit: makePages,
+                afterUpdate: makePages,
+            });
+        });
+    </script>
+{% endblock %}
+

@@ -1,0 +1,20 @@
+
+g	php:S1192Š"LDefine a constant instead of duplicating this literal "count(p.id)" 6 times.(Šß¡‡ûÿÿÿÿ
+\php:S107A"HThis function has 13 parameters, which is greater than the 7 authorized.(¨…±–
+u	php:S1488Ð"_Immediately return this expression instead of assigning it to the temporary variable "$orders".(ÌƒÁ€
+ˆ	php:S1488½"mImmediately return this expression instead of assigning it to the temporary variable "$onFinanceProjectStat".(ìÛØäýÿÿÿÿ
+n	php:S1192Š"SDefine a constant instead of duplicating this literal "App\Entity\Project" 7 times.(¥é—ßøÿÿÿÿ
+:php:S125\"Remove this commented out code.(Žø„±8õ°âÀ.
+?	php:S1481Â")Remove this unused "$key" local variable.(™ÿ£×
+Š	php:S1488—"oImmediately return this expression instead of assigning it to the temporary variable "$unPublishedProjectStat".(ËÖ—·þÿÿÿÿ
+P	php:S1172N"/Remove the unused function parameter "$userId".(å¶÷Õøÿÿÿÿ8õ°âÀ.
+w	php:S1488æ"aImmediately return this expression instead of assigning it to the temporary variable "$projects".(Å¯³²
+w	php:S1488Ž"aImmediately return this expression instead of assigning it to the temporary variable "$projects".(Å¯³²
+>	php:S1481h")Remove this unused "$key" local variable.(™ÿ£×
+hphp:S107“"GThis function has 9 parameters, which is greater than the 7 authorized.(˜ñžÐýÿÿÿÿ8Ê ’ßÀ.
+	php:S1488¤"iImmediately return this expression instead of assigning it to the temporary variable "$totalProjectStat".(ŠÍéâ
+…	php:S1488Ø"pImmediately return this expression instead of assigning it to the temporary variable "$contributionPendingStat".( ­ï=
+{	php:S1488®"`Immediately return this expression instead of assigning it to the temporary variable "$project".(³•Ù¼ùÿÿÿÿ
+ˆ	php:S1488Š"mImmediately return this expression instead of assigning it to the temporary variable "$publishedProjectStat".(Šß¡‡ûÿÿÿÿ
+ˆ	php:S1488°"mImmediately return this expression instead of assigning it to the temporary variable "$onFinanceProjectStat".(ìÛØäýÿÿÿÿ
+t	php:S1192Œ"WDefine a constant instead of duplicating this literal "p.project_creationdate" 8 times.(»áôØ8Î›ÍâÀ.

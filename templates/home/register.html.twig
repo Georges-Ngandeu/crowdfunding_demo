@@ -1,0 +1,46 @@
+{% extends 'home/base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        legend.col-form-label{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        #user_form_subscriber_image{
+            height: calc(2.25rem + 2px);
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+        }
+    </style>
+    {{ encore_entry_link_tags('registerForm') }}
+{% endblock %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>Informations personnelles</h1>
+        </div>
+    </div><!-- .page-title -->
+
+    <div class="container">
+        <div class="main-content">
+            {#<div class="form-login form-register">#}
+                {#<h2>Créer un compte</h2>#}
+                {#<div id="registerForm" ref="input" data-project="{{ project.getId() }}"></div>#}
+            {#</div>#}
+            <div class="form-login form-register">
+                <h2>Informations personnelles</h2>
+                <div id="registerForm" data-project="{{ project.getId() }}"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('registerForm') }}
+{% endblock %}

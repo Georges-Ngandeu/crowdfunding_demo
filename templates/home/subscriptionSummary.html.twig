@@ -1,0 +1,165 @@
+{% extends 'home/base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        legend.col-form-label{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        #author_form_authorImage{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+        }
+
+        .form-check-label {
+            padding-left: 1.25rem;
+            margin-bottom: 0px;
+            padding-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        #engagement_form_engagement, #engagement_form_assistance{
+            width: 1rem;
+            margin-left: 0.1rem;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>{{ subscription.getProjectId().getProjectName() }}</h1>
+        </div>
+    </div><!-- .page-title -->
+
+    <div class="container">
+        <div class="main-content">
+            <div class="form-login form-register">
+                <h2>Résumé de la souscription (partiel)</h2>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Nom</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberFirstname()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Prénom</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberLastname()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Personne morale</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberEnterpriseName()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Representant personne morale</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberDirectorFirstname()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Date de naissance</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberBirthdate()| date('Y-m-d H:i:s')}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Lieu de naissance</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberBirthPlace()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">N° CNI/Passport</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberIdentityCardNumber()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">Délivré le</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberIdentityCardDeliveryDate()| date('Y-m-d H:i:s')}}" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">A</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberIdentityCardDeliveryPlace()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Téléphone</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberTelephone()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberEmail()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Profession</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberProfession()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Ville</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriberId().getSubscriberTown()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="exampleInputEmail1">Nombre de parts</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriptionNumber()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="exampleInputEmail1">Cout global de la souscription</label>
+                        <input class="form-control" type="text" placeholder="{{(subscription.getProjectId().getProjectCost()/subscription.getProjectId().getProjectNumberaction())*subscription.getSubscriptionNumber()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Moyen de paiement</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriptionMobileOperator()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Compte mobile pour recevoir les rentes</label>
+                        <input class="form-control" type="text" placeholder="{{subscription.getSubscriptionMobileAccount()["subscription_mobile_account"]}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="margin-left: -2rem">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <a href="{{ path('checkoutProject', {'id': subscription.getId()}) }}" class="btn btn-primary btn-lg btn-block">
+                            Je paye
+                        </a>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <a target="_blank" href="{{ path('subscription', {'id': subscription.getId()}) }}" class="btn btn-primary btn-lg btn-block">
+                            Je télécharge
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

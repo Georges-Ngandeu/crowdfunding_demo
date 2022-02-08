@@ -1,0 +1,43 @@
+.site-main .sideshow {
+    position: relative;
+    height: 674px;
+    background-image: url(images/coffee-beans_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.page-title.background-campaign {
+    background-image: url(images/vegetables_1920.jpg);
+}
+
+.page-title.background-page {
+    background-image: url(images/vegetables_1920.jpg);
+}
+
+.form-login {
+    max-width: 700px !important;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+}
+
+a:hover {
+    color: #00a6eb;
+    text-decoration: none;
+}
+
+.staff-picks-item a.staff-picks-image, .project-love-item a.project-love-image, .campaign-big-item a.campaign-big-image, div.campaign-box {
+    float: left;
+}
+
+.campaign-detail .share {
+    margin-top: 25px;
+}
+
+.campaign-history {
+    margin-top: 40px;
+}
+
+.site-main {
+    padding-bottom: 0px;
+}

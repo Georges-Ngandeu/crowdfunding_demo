@@ -1,0 +1,22 @@
+{% extends 'home/base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>Inscription réussi</h1>
+        </div>
+    </div><!-- .page-title -->
+
+    <div class="container">
+        <div class="main-content main-404">
+            <h2>Inscription réussi, veiller valider par email pour vous connecter</h2>
+            <div class="button">
+                <a href="{{ path('home') }}" class="btn-secondary">Vers accueil</a>
+                <a href="{{ path('all') }}" class="btn-primary">Explorer tous les projets</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

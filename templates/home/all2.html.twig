@@ -1,0 +1,318 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CrowdFunding</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('mystyles.css') }}" />
+    <link rel="icon" href="" type="image/x-icon"/>
+
+<body>
+<div id="wrapper">
+    <header id="header" class="site-header">
+        <div class="top-header clearfix">
+            <div class="container">
+                <ul class="socials-top">
+                    <li><a target="_Blank" href="https://www.facebook.com/CRIFATCameroun/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="http://www.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.youtube.com/channel/UC63W--2pmVK-xrU5xL0CiUA"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="phone">
+                    Appeler le  (+237) 233 40 01 51
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="site-brand">
+                <a href="{{ path('home') }}"><img src="{{ asset('images/crifat.jpg') }}" alt=""></a>
+            </div><!-- .site-brand -->
+            <div class="right-header">
+                <nav class="main-menu">
+                    <button class="c-hamburger c-hamburger--htx"><span></span></button>
+                    <ul>
+                        {% if is_granted("ROLE_SUBSCRIBER_USER") %}
+                            <li>
+                                <i class="fa-li fa fa-check-square"></i>
+                                <a href="#">Mon compte<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Nom: {{ app.user.username }}</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav><!-- .main-menu -->
+                {% if is_granted("ROLE_SUBSCRIBER_USER") %}
+                {% else %}
+                    <div class="login login-button">
+                        <a href="{{ path('loginUser') }}" class="btn-primary">Se connecter</a>
+                    </div>
+                {% endif %}
+            </div><!--. right-header -->
+        </div><!-- .container -->
+    </header><!-- .site-header -->
+
+    <main id="main" class="site-main">
+        <div class="page-title background-page">
+            <div class="container">
+                <h1>Tous nos projets</h1>
+            </div>
+        </div><!-- .page-title -->
+        <div class="campaigns">
+            <div class="container">
+                <div class="campaign-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/carrot.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Agriculture</a>
+                                    <h3><a href="campaign_detail.html">Culture des carottes</a></h3>
+                                    <div class="campaign-description">A watch designed to be an heirloom to be passed down to the next generation.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-01.png" alt=""></a>by <a class="author-name" href="#">Sabato Alterio</a></div>
+                                    <div class="process">
+                                        <div class="raised">
+                                            <span></span>
+                                        </div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$630</span>Objectif</div>
+                                            <div class="process-funded"><span>26%</span>Engagé</div>
+                                            <div class="process-time"><span>2 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/grapes.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Agriculture</a>
+                                    <h3><a href="campaign_detail.html">Culture des grappes</a></h3>
+                                    <div class="campaign-description">One smart, reusable notebook to last the rest of your life? That's not magic, that's the Everlast.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-02.png" alt=""></a>by <a class="author-name" href="#">Samino</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$370</span>Objectif</div>
+                                            <div class="process-funded"><span>9%</span>Engagé</div>
+                                            <div class="process-time"><span>9 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/fig.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Agriculture</a>
+                                    <h3><a href="campaign_detail.html">Culture des figues</a></h3>
+                                    <div class="campaign-description">The Orsden Slope Pants don't compromise delivering performance, fit, and value directly to you</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-03.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$610</span>Objectif</div>
+                                            <div class="process-funded"><span>73%</span>Engagé</div>
+                                            <div class="process-time"><span>14 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/wheat.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Agriculture</a>
+                                    <h3><a href="campaign_detail.html">Smart Wallet with Solar Charge</a></h3>
+                                    <div class="campaign-description">A wonderful serenity has taken possession of my entire soul, like these sweet mornings.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-01.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$670</span>Objectif</div>
+                                            <div class="process-funded"><span>58%</span>Engagé</div>
+                                            <div class="process-time"><span>21 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/sheep.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Elevage</a>
+                                    <h3><a href="campaign_detail.html">Elevage des moutons</a></h3>
+                                    <div class="campaign-description">I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-02.png" alt=""></a>by <a class="author-name" href="#">Sabato Alterio</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$950</span>Objectif</div>
+                                            <div class="process-funded"><span>70%</span>Engagé</div>
+                                            <div class="process-time"><span>9 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/chicken.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Elevage</a>
+                                    <h3><a href="campaign_detail.html">Elevage des poulets</a></h3>
+                                    <div class="campaign-description">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-03.png" alt=""></a>by <a class="author-name" href="#">Samino</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$390</span>Objectif</div>
+                                            <div class="process-funded"><span>69%</span>Engagé</div>
+                                            <div class="process-time"><span>8 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/carrot.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Agriculture</a>
+                                    <h3><a href="campaign_detail.html">Culture des carottes</a></h3>
+                                    <div class="campaign-description">A watch designed to be an heirloom to be passed down to the next generation.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-01.png" alt=""></a>by <a class="author-name" href="#">Sabato Alterio</a></div>
+                                    <div class="process">
+                                        <div class="raised">
+                                            <span></span>
+                                        </div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$630</span>Objectif</div>
+                                            <div class="process-funded"><span>26%</span>Engagé</div>
+                                            <div class="process-time"><span>2 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/grapes.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Agriculture</a>
+                                    <h3><a href="campaign_detail.html">Culture des grappes</a></h3>
+                                    <div class="campaign-description">One smart, reusable notebook to last the rest of your life? That's not magic, that's the Everlast.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-02.png" alt=""></a>by <a class="author-name" href="#">Samino</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$370</span>Objectif</div>
+                                            <div class="process-funded"><span>9%</span>Engagé</div>
+                                            <div class="process-time"><span>9 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular">
+                            <div class="campaign-item">
+                                <a class="overlay" href="#">
+                                    <img src="images/fig.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Agriculture</a>
+                                    <h3><a href="campaign_detail.html">Culture des figues</a></h3>
+                                    <div class="campaign-description">The Orsden Slope Pants don't compromise delivering performance, fit, and value directly to you</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-03.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$610</span>Objectif</div>
+                                            <div class="process-funded"><span>73%</span>Engagé</div>
+                                            <div class="process-time"><span>14 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="latest-button"><a href="#" class="btn-primary">Plus de projets</a></div>
+            </div>
+        </div><!-- .latest -->
+    </main><!-- .site-main -->
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <p class="copyright">2020 by Afrikpay. All Rights Reserved.</p>
+                <a href="#" class="back-top">Back to top<span class="ion-android-arrow-up"></span></a>
+            </div>
+        </div>
+    </footer><!-- site-footer -->
+</div><!-- #wrapper -->
+<!-- jQuery -->
+<script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ asset('libs/popper/popper.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/carousel.min.js') }}"></script>
+<script src="{{ asset('libs/jquery.countdown/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('libs/wow/wow.min.js') }}"></script>
+<script src="{{ asset('libs/isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('libs/bxslider/jquery.bxslider.min.js') }}"></script>
+<script src="{{ asset('libs/magicsuggest/magicsuggest-min.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.core.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.js') }}"></script>
+<!-- orther script -->
+<script src="{{ asset('js/main.js') }}"></script>
+<script>
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>
+</body>
+</html>

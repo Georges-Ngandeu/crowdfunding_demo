@@ -1,0 +1,397 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CrowdFunding</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('mystyles.css') }}" />
+    <link rel="icon" href="" type="image/x-icon"/>
+
+<body class="home home-top">
+<div class="preloading">
+    <div class="preloader loading">
+        <span class="slice"></span>
+        <span class="slice"></span>
+        <span class="slice"></span>
+        <span class="slice"></span>
+        <span class="slice"></span>
+        <span class="slice"></span>
+    </div>
+</div>
+<div id="wrapper">
+    <header id="header" class="site-header">
+        <div class="top-header clearfix">
+            <div class="container">
+                <ul class="socials-top">
+                    <li><a target="_Blank" href="https://www.facebook.com/CRIFATCameroun/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="http://www.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.youtube.com/channel/UC63W--2pmVK-xrU5xL0CiUA"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="phone">
+                    Appeler le  (+237) 233 40 01 51
+                </div>
+            </div>
+        </div>
+        <div class="content-header">
+            <div class="container">
+                <div class="site-brand">
+                    <a href="{{ path('home') }}"><img src="{{ asset('images/crifat.jpg') }}" alt=""></a>
+                </div><!-- .site-brand -->
+                <div class="right-header">
+                    <nav class="main-menu">
+                        <button class="c-hamburger c-hamburger--htx"><span></span></button>
+                        <ul>
+                            <li>
+                                <a href="#">Accueil<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Lien 1</a></li>
+                                    <li><a href="#">Lien 2</a></li>
+                                    <li><a href="#">Lien 3</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Nos Projets<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Lien 1</a></li>
+                                    <li><a href="#">Lien 2</a></li>
+                                    <li><a href="#">Lien 3</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Contact<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Lien 1</a></li>
+                                    <li><a href="#">Lien 2</a></li>
+                                    <li><a href="#">Lien 3</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav><!-- .main-menu -->
+                    <div class="search-icon">
+                        <a href="#" class="ion-ios-search-strong"></a>
+                        <div class="form-search"></div>
+                        <form action="#" method="POST" id="searchForm">
+                            <input type="text" value="" name="search" placeholder="Search..." />
+                            <button type="submit" value=""><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+
+                </div><!--. right-header -->
+            </div><!-- .container -->
+        </div>
+    </header><!-- .site-header -->
+
+    <main id="main" class="site-main">
+        <div class="sideshow">
+            <div class="container">
+                <div class="sideshow-content">
+                    <h1 class="wow fadeInUp" data-wow-delay=".1s">Donner vie à des idées de projets</h1>
+                    <div class="sideshow-description wow fadeInUp" data-wow-delay=".1s">Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu teus.</div>
+                    {#<div class="process wow fadeInUp" data-scroll-nav="1">#}
+                        {#<div class="raised"><span></span></div>#}
+                        {#<div class="process-info">#}
+                            {#<div class="process-funded"><span>46%</span>funded</div>#}
+                            {#<div class="process-pledged"><span>$46.000</span>pledged</div>#}
+                            {#<div class="process-backers"><span>32</span>backers</div>#}
+                            {#<div class="process-time"><span>21</span>days ago</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    <div class="button wow fadeInUp" data-wow-delay="0.1s">
+                        <a href="{{ path('all') }}" class="btn-secondary">Voir tous nos projets</a>
+                    </div>
+                </div><!-- .sideshow-content -->
+            </div>
+        </div><!-- .sideshow -->
+
+        <div class="latest campaign">
+            <div class="container">
+                <h2 class="title" style="margin-bottom: 3rem;">Découvrer nos projets</h2>
+
+                <div class="campaign-content grid">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="{{ path('detail') }}">
+                                    <img src="images/latest-01.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Crafts</a>
+                                    <h3><a href="campaign_detail.html">The Oreous Pillow</a></h3>
+                                    <div class="campaign-description">A watch designed to be an heirloom to be passed down to the next generation.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-01.png" alt=""></a>by <a class="author-name" href="#">Sabato Alterio</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$630</span>Objectif</div>
+                                            <div class="process-funded"><span>26%</span>Engagé</div>
+                                            <div class="process-time"><span>2 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="{{ path('detail') }}">
+                                    <img src="images/latest-02.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Book</a>
+                                    <h3><a href="campaign_detail.html">The Everlast Notebook</a></h3>
+                                    <div class="campaign-description">One smart, reusable notebook to last the rest of your life? That's not magic, that's the Everlast.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-02.png" alt=""></a>by <a class="author-name" href="#">Samino</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$370</span>Objectif</div>
+                                            <div class="process-funded"><span>9%</span>Engagé</div>
+                                            <div class="process-time"><span>9 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular">
+                            <div class="campaign-item">
+                                <a class="overlay" href="{{ path('detail') }}">
+                                    <img src="images/latest-03.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Perfomances</a>
+                                    <h3><a href="campaign_detail.html">Uncompromising Ski Gear</a></h3>
+                                    <div class="campaign-description">The Orsden Slope Pants don't compromise delivering performance, fit, and value directly to you</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-03.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$610</span>Objectif</div>
+                                            <div class="process-funded"><span>73%</span>Engagé</div>
+                                            <div class="process-time"><span>14 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterlatest">
+                            <div class="campaign-item">
+                                <a class="overlay" href="{{ path('detail') }}">
+                                    <img src="images/latest-04.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Technology</a>
+                                    <h3><a href="campaign_detail.html">Smart Wallet with Solar Charge</a></h3>
+                                    <div class="campaign-description">A wonderful serenity has taken possession of my entire soul, like these sweet mornings.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-01.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$3670</span>Objectif</div>
+                                            <div class="process-funded"><span>58%</span>Engagé</div>
+                                            <div class="process-time"><span>21 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting">
+                            <div class="campaign-item">
+                                <a class="overlay" href="{{ path('detail') }}">
+                                    <img src="images/latest-05.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Technology</a>
+                                    <h3><a href="campaign_detail.html">Redefine Your VR Experience</a></h3>
+                                    <div class="campaign-description">I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-02.png" alt=""></a>by <a class="author-name" href="#">Sabato Alterio</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$1950</span>Objectif</div>
+                                            <div class="process-funded"><span>70%</span>Engagé</div>
+                                            <div class="process-time"><span>23 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-6 filterinteresting filterpopular">
+                            <div class="campaign-item">
+                                <a class="overlay" href="{{ path('detail') }}">
+                                    <img src="images/latest-06.jpg" alt="">
+                                    <span class="ion-ios-search-strong"></span>
+                                </a>
+                                <div class="campaign-box">
+                                    <a href="#" class="category">Design &amp; Art</a>
+                                    <h3><a href="campaign_detail.html">Bring back Fun House</a></h3>
+                                    <div class="campaign-description">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</div>
+                                    <div class="campaign-author"><a class="author-icon" href="#"><img src="images/author-03.png" alt=""></a>by <a class="author-name" href="#">Samino</a></div>
+                                    <div class="process">
+                                        <div class="raised"><span></span></div>
+                                        <div class="process-info">
+                                            <div class="process-pledged"><span>$3900</span>Objectif</div>
+                                            <div class="process-funded"><span>69%</span>Engagé</div>
+                                            <div class="process-time"><span>33 ième</span>Jours</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="latest-button"><a href="{{ path('all') }}" class="btn-primary">Voir tous les projets</a></div>
+            </div>
+        </div><!-- .latest -->
+
+        <div class="partners">
+            <div class="container">
+                <div class="partners-slider owl-carousel">
+                    <div><a href="#"><img src="images/partner-01.png" alt=""></a></div>
+                    <div><a href="#"><img src="images/partner-02.png" alt=""></a></div>
+                    <div><a href="#"><img src="images/partner-03.png" alt=""></a></div>
+                    <div><a href="#"><img src="images/partner-04.png" alt=""></a></div>
+                    <div><a href="#"><img src="images/partner-05.png" alt=""></a></div>
+                    <div><a href="#"><img src="images/partner-06.png" alt=""></a></div>
+                </div>
+            </div>
+        </div><!-- .partners -->
+    </main><!-- .site-main -->
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-4 col-4">
+                        <div class="footer-menu-item">
+                            <h3>Our company</h3>
+                            <ul>
+                                <li><a href="#">What is Startup Idea</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">How It Works</a></li>
+                                <li><a href="#">What Is This</a></li>
+                                <li><a href="#">Jobs</a></li>
+                                <li><a href="#">Press</a></li>
+                                <li><a href="#">Starts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-4">
+                        <div class="footer-menu-item">
+                            <h3>Campaign</h3>
+                            <ul>
+                                <li><a href="#">Start Your Campaign</a></li>
+                                <li><a href="#">Pricing Campaign</a></li>
+                                <li><a href="#">Campaign Support</a></li>
+                                <li><a href="#">Trust &amp; Safety</a></li>
+                                <li><a href="#">Support</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-4">
+                        <div class="footer-menu-item">
+                            <h3>Explore</h3>
+                            <ul>
+                                <li><a href="#">Design &amp; Art</a></li>
+                                <li><a href="#">Crafts</a></li>
+                                <li><a href="#">Film &amp; Video</a></li>
+                                <li><a href="#">Food</a></li>
+                                <li><a href="#">Book</a></li>
+                                <li><a href="#">Games</a></li>
+                                <li><a href="#">Technology</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 col-12">
+                        <div class="footer-menu-item newsletter">
+                            <h3>Newsletter</h3>
+                            <div class="newsletter-description">Private, secure, spam-free</div>
+                            <form action="s" method="POST" id="newsletterForm">
+                                <input type="text" value="" name="s" placeholder="Enter your email..." />
+                                <button type="submit" value=""><span class="ion-android-drafts"></span></button>
+                            </form>
+                            <div class="follow">
+                                <h3>Follow us</h3>
+                                <ul>
+                                    <li class="facebook"><a target="_Blank" href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li class="twitter"><a target="_Blank" href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li class="instagram"><a target="_Blank" href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li class="google"><a target="_Blank" href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li class="youtube"><a target="_Blank" href="https://www.youtube.com"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-top">
+                    <p class="payment-img"><img src="images/assets/payment-methods.png" alt=""></p>
+                    <div class="footer-top-right">
+                        <div class="dropdow field-select">
+                            <select name="s">
+                                <option value="">$ US Dollar (USD)</option>
+                                <option value="">£ Pound Sterling (GBP)</option>
+                                <option value="">€ Euro (EUR)</option>
+                            </select>
+                        </div>
+                        <div class="dropdow field-select">
+                            <select name="s">
+                                <option value="">English</option>
+                                <option value="">Greek (Ελληνικά)</option>
+                                <option value="">Deutsch (German)</option>
+                                <option value="">العربية (Arabic)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .footer-menu -->
+        <div class="footer-copyright">
+            <div class="container">
+                <p class="copyright">2020 by Afrikpay. All Rights Reserved.</p>
+                <a href="#" class="back-top">Back to top<span class="ion-android-arrow-up"></span></a>
+            </div>
+        </div>
+    </footer><!-- site-footer -->
+</div><!-- #wrapper -->
+<!-- jQuery -->
+<script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ asset('libs/popper/popper.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/carousel.min.js') }}"></script>
+<script src="{{ asset('libs/jquery.countdown/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('libs/wow/wow.min.js') }}"></script>
+<script src="{{ asset('libs/isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('libs/bxslider/jquery.bxslider.min.js') }}"></script>
+<script src="{{ asset('libs/magicsuggest/magicsuggest-min.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.core.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.js') }}"></script>
+<!-- orther script -->
+<script src="{{ asset('js/main.js') }}"></script>
+<script>
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>
+</body>
+</html>

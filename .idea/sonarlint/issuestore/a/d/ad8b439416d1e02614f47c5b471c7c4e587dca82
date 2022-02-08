@@ -1,0 +1,94 @@
+
+r	php:S1192Â"PDefine a constant instead of duplicating this literal "subscriberPhone" 4 times.(»Í¿…ıÿÿÿÿ8™ËóœÄ.
+@php:S125»"Remove this commented out code.(‰­æÔøÿÿÿÿ8œ¬ì§Ä.
+;php:S125û	"Remove this commented out code.(³ß˜¾8ŒÂš§Ä.
+K	php:S1481ã")Remove this unused "$uid" local variable.(ş©¢ªøÿÿÿÿ8™ËóœÄ.
+@php:S125
+"Remove this commented out code.(ùÊÅûÿÿÿÿ8ŒÂš§Ä.
+k	php:S1192í"IDefine a constant instead of duplicating this literal "success" 18 times.(É”°Çıÿÿÿÿ8í„¡Ä.
+p	php:S3776Û"TRefactor this function to reduce its Cognitive Complexity from 29 to the 15 allowed.(ÿ‡äL8Ç½¹¦Ä.
+;php:S125¨
+"Remove this commented out code.(³ß˜¾8ŒÂš§Ä.
+‹	php:S14484"jClass "HomeController" has 30 methods, which is greater than 20 authorized. Split it into smaller classes.(»½Ñ×ùÿÿÿÿ8ığ“×Â.
+K	php:S1481ä")Remove this unused "$pid" local variable.(ªøíùÿÿÿÿ8™ËóœÄ.
+Q	php:S1066Ü	"/Merge this if statement with the enclosing one.(€Õ‡¬ÿÿÿÿÿ8ŒÂš§Ä.
+x	php:S1192˜"[Define a constant instead of duplicating this literal "subscription_partner_phone" 3 times.(İ¸´8™ËóœÄ.
+@php:S125“"Remove this commented out code.(‰­æÔøÿÿÿÿ8ºæ§Ä.
+@php:S125¡"Remove this commented out code.(ö´‘¡üÿÿÿÿ8™ËóœÄ.
+v	php:S1192É"YDefine a constant instead of duplicating this literal "subscriberRevenuEstimate" 4 times.(Ûü÷§8™ËóœÄ.
+@php:S125è"Remove this commented out code.(ûÜ€Íúÿÿÿÿ8™ËóœÄ.
+p	php:S3776Ï	"TRefactor this function to reduce its Cognitive Complexity from 37 to the 15 allowed.(óãÏ38ŒÂš§Ä.
+p	php:S1192¼"SDefine a constant instead of duplicating this literal "subscriberLastName" 4 times.(¹œ™8™ËóœÄ.
+;php:S125±"Remove this commented out code.(Ö’—8™ËóœÄ.
+€	php:S1192—"^Define a constant instead of duplicating this literal "subscription_partner_lastname" 3 times.(¤ßŸøÿÿÿÿ8™ËóœÄ.
+@php:S125å"Remove this commented out code.(å“Õğúÿÿÿÿ8™ËóœÄ.
+l	php:S1192Æ"ODefine a constant instead of duplicating this literal "subscriberTown" 4 times.(Ï“á™8™ËóœÄ.
+r	php:S1192"PDefine a constant instead of duplicating this literal "controller_name" 4 times.(Íˆ¦ˆøÿÿÿÿ8™ËóœÄ.
+N	php:S1481	"1Remove this unused "$masterAdmin" local variable.(òĞïÁ8ŒÂš§Ä.
+k	php:S1142Û"OReduce the number of returns of this function 9, down to the maximum allowed 3.(ÿ‡äL8ù·¦Ä.
+l	php:S1142Ï	"PReduce the number of returns of this function 10, down to the maximum allowed 3.(óãÏ38ŒÂš§Ä.
+;php:S125»"Remove this commented out code.(Ö’—8™ËóœÄ.
+j	php:S1192ò"MDefine a constant instead of duplicating this literal "phone_number" 4 times.(½ù’ë8ßüı¦Ä.
+w	php:S1192ˆ"UDefine a constant instead of duplicating this literal "home/login.html.twig" 4 times.(¹âìúÿÿÿÿ8™ËóœÄ.
+N	php:S1068i"2Remove this unused "$objectmanager" private field.(ÄğĞË8™ËóœÄ.
+l	php:S1142÷"OReduce the number of returns of this function 5, down to the maximum allowed 3.(ğ«Úö8™ËóœÄ.
+;php:S125°"Remove this commented out code.(Ë·ûß8™ËóœÄ.
+ƒ	php:S1488Ô
+"aImmediately return this expression instead of assigning it to the temporary variable "$response".(¬›ëúÿÿÿÿ8ŒÂš§Ä.
+@php:S125£
+"Remove this commented out code.(ùÊÅûÿÿÿÿ8ŒÂš§Ä.
+[	php:S1854¢"9Remove this useless assignment to local variable '$user'.(Á¾¹îùÿÿÿÿ8™ËóœÄ.
+;php:S125’
+"Remove this commented out code.(³ß˜¾8ŒÂš§Ä.
+v	php:S1192¿"TDefine a constant instead of duplicating this literal "subscriberCniNumber" 4 times.(¼«åşÿÿÿÿ8™ËóœÄ.
+hphp:S107n"HThis function has 12 parameters, which is greater than the 7 authorized.(´ïÆÈşÿÿÿÿ8™ËóœÄ.
+X	php:S1481à"<Remove this unused "$checkContributionRight" local variable.(ë€8™ËóœÄ.
+j	php:S1192§"HDefine a constant instead of duplicating this literal "project" 6 times.(è£·Õûÿÿÿÿ8™ËóœÄ.
+l	php:S1142³"OReduce the number of returns of this function 4, down to the maximum allowed 3.(Êò¸Æ8™ËóœÄ.
+|	php:S1192Ô"_Define a constant instead of duplicating this literal "subscription_partner_firstname" 4 times.(¶à›8™ËóœÄ.
+v	php:S1192º"YDefine a constant instead of duplicating this literal "moralePersonRepresentant" 4 times.(•÷¯§8™ËóœÄ.
+	php:S4144´	"_Update this method so that its implementation is not identical to "getSubscriber" on line 1081.(İ³¯úÿÿÿÿ8ŒÂš§Ä.
+l	php:S1192ˆ"ODefine a constant instead of duplicating this literal "paymentStatus" 16 times.(î§ØŞ8î…Û¦Ä.
+f	php:S1192»"IDefine a constant instead of duplicating this literal "username" 5 times.(çàéğ8™ËóœÄ.
+q	php:S3776÷"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(ğ«Úö8™ËóœÄ.
+i	php:S1192Š"GDefine a constant instead of duplicating this literal "errors" 4 times.(Ì‘Şƒøÿÿÿÿ8™ËóœÄ.
+m	php:S1192Ä"PDefine a constant instead of duplicating this literal "subscriberEmail" 4 times.(‡Òç8™ËóœÄ.
+@php:S125ÿ"Remove this commented out code.(‰­æÔøÿÿÿÿ8Ø¤ß§Ä.
+@php:S125‘	"Remove this commented out code.(¡ôŸ¤ùÿÿÿÿ8ŒÂš§Ä.
+;php:S125¾"Remove this commented out code.(ì‹±û8™ËóœÄ.
+N	php:S1481¹"1Remove this unused "$masterAdmin" local variable.(òĞïÁ8™ËóœÄ.
+F	php:S1125")Remove the literal "false" boolean value.(¿ìÄ¢8™ËóœÄ.
+u	php:S1192Á"SDefine a constant instead of duplicating this literal "subscriberCniPlace" 4 times.(â®Ë®şÿÿÿÿ8™ËóœÄ.
+9php:S125®"Remove this commented out code.(‘—8™ËóœÄ.
+d	php:S1192"GDefine a constant instead of duplicating this literal "failed" 9 times.(ÖÏƒÿ8î…Û¦Ä.
+i	php:S1192Â"GDefine a constant instead of duplicating this literal "Result" 4 times.(Âÿ¬úÿÿÿÿ8™ËóœÄ.
+e	php:S1192¨"HDefine a constant instead of duplicating this literal "package" 4 times.(æƒıó8™ËóœÄ.
+j	php:S1192‰"HDefine a constant instead of duplicating this literal "status" 20 times.(¦ïÁ£ùÿÿÿÿ8˜®Ú¦Ä.
+e	php:S1192Ÿ"HDefine a constant instead of duplicating this literal "userId" 11 times.(©…ƒÀ8™ËóœÄ.
+s	php:S1192¹"QDefine a constant instead of duplicating this literal "moralePersonName" 4 times.(ôñÕûÿÿÿÿ8™ËóœÄ.
+i	php:S1192ó"GDefine a constant instead of duplicating this literal "amount" 6 times.(ë³Ìõûÿÿÿÿ8À¦à¦Ä.
+e	php:S1192…"HDefine a constant instead of duplicating this literal "message" 8 times.(œÔ³ú8î…Û¦Ä.
+@php:S125ƒ"Remove this commented out code.(İñĞàúÿÿÿÿ8™ËóœÄ.
+r	php:S1192¾"UDefine a constant instead of duplicating this literal "subscriberBirthPlace" 4 times.(ñì‰‹8™ËóœÄ.
+i	php:S1192€"LDefine a constant instead of duplicating this literal "purchaseref" 8 times.(Õ­úŞ8î…Û¦Ä.
+^	php:S1481œ"ARemove this unused "$subscription_mobile_account" local variable.(ŒÎ©¹8™ËóœÄ.
+c	php:S1192Á"FDefine a constant instead of duplicating this literal "email" 4 times.(Ìùª™8™ËóœÄ.
+v	php:S1192»"TDefine a constant instead of duplicating this literal "subscriberFirstName" 4 times.(º‰‡ùÿÿÿÿ8™ËóœÄ.
+j	php:S1192ö"HDefine a constant instead of duplicating this literal "Success" 3 times.(¶œ¥ûÿÿÿÿ8ŒÂš§Ä.
+w	php:S1192Å"UDefine a constant instead of duplicating this literal "subscriberProfession" 4 times.(à•û–şÿÿÿÿ8™ËóœÄ.
+@php:S125é"Remove this commented out code.(ö´‘¡üÿÿÿÿ8™ËóœÄ.
+x	php:S1192™"[Define a constant instead of duplicating this literal "subscription_partner_email" 3 times.(ù¨ÓÏ8™ËóœÄ.
+?	php:S1763¥"Remove this unreachable code.(‚Åšÿÿÿÿÿ8™ËóœÄ.
+	php:S1192È"]Define a constant instead of duplicating this literal "subscriberProfessionalStatus" 4 times.(Ü“²Œşÿÿÿÿ8™ËóœÄ.
+@php:S125§"Remove this commented out code.(‰­æÔøÿÿÿÿ8Û²é§Ä.
+k	php:S1192¼"IDefine a constant instead of duplicating this literal "password" 4 times.(ç“óÎüÿÿÿÿ8™ËóœÄ.
+q	php:S1192"ODefine a constant instead of duplicating this literal "HomeController" 4 times.(Íˆ¦ˆøÿÿÿÿ8™ËóœÄ.
+u	php:S1192Ç"XDefine a constant instead of duplicating this literal "subscriberMaritalStatus" 4 times.(¬Ç¾Œ8™ËóœÄ.
+g	php:S1192Ä"JDefine a constant instead of duplicating this literal "loginUser" 3 times.(¸Ö›ö8™ËóœÄ.
+@php:S125À"Remove this commented out code.(İñĞàúÿÿÿÿ8™ËóœÄ.
+h	php:S1192É"KDefine a constant instead of duplicating this literal "subscriber" 3 times.(Œë„ª8™ËóœÄ.
+@php:S125„"Remove this commented out code.(ö´‘¡üÿÿÿÿ8™ËóœÄ.
+y	php:S1192Ê"WDefine a constant instead of duplicating this literal "subscriberRevenuOrigin" 4 times.(ï«ó«ùÿÿÿÿ8™ËóœÄ.
+q	php:S1192½"TDefine a constant instead of duplicating this literal "subscriberBirthDate" 4 times.(òáúš8™ËóœÄ.
+k	php:S1192¸"IDefine a constant instead of duplicating this literal "userData" 3 times.(å’ùÿÿÿÿ8™ËóœÄ.
+o	php:S1192À"RDefine a constant instead of duplicating this literal "subscriberCniDate" 4 times.(êÚîœ8™ËóœÄ.

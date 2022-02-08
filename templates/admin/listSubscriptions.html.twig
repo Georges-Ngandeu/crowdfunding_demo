@@ -1,0 +1,80 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des souscriptions{% endblock %}
+
+{% block body %}
+    <div class="row mb-2 mt-2">
+        <div class="col-12">
+            <a href="{{ path('createProject') }}" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Créer un projet</a>
+            <a href="{{ path('createManager') }}" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Créer un manager de souscription</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box table-responsive">
+                <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="datatable" class="table table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                <thead>
+                                <tr role="row">
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Désignation du Projet</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Identité du souscripteur</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Nombre de souscriptions</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Montant total des soucriptions</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Source de revenu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Status</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 50px;">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if subscriptions|length > 0 %}
+                                    {% for subscription in subscriptions %}
+                                        <tr role="row" class="odd">
+                                            <td>{{ subscription.getProjectId().getProjectName() }}</td>
+                                            <td><a href="{{ path('investorDetail', {'username': subscription.getSubscriberId().getSubscriberFirstname()}) }}">{{ subscription.getSubscriberId().getSubscriberFirstname() }} {{ subscription.getSubscriberId().getSubscriberLastname() }}</a></td>
+                                            <td>{{ subscription.getSubscriptionNumber() }}</td>
+                                            <td>{{ (subscription.getProjectId().getProjectCost()/subscription.getProjectId().getProjectNumberaction()) * subscription.getSubscriptionNumber() | number_format(0, '.', ',') }}</td>
+                                            <td>{{ subscription.getSubscriberId().getSubscriberRevenuOrigine() }}</td>
+                                            <td class="{{ subscription.getSubscriptionStatus() == 1 ? 'bg-info':'bg-danger' }}">{{ subscription.getSubscriptionStatus() }}</td>
+                                            <td>
+                                                <a href="{{ path('contributionValidate', {'id': subscription.getId()}) }}" class="btn btn-icon waves-effect waves-light btn-primary m-b-5"> <i class="fa fa-check"></i> </a>
+                                                <a href="{{ path('contributionReject', {'id': subscription.getId()}) }}" class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr role="row" class="odd">
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Required datatable js -->
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        } );
+
+    </script>
+{% endblock %}

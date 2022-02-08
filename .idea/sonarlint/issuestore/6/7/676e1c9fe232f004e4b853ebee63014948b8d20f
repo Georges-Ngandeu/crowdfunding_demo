@@ -1,0 +1,11 @@
+
+z	php:S4144Í"eUpdate this method so that its implementation is not identical to "registerContribution" on line 121.(µ¶t
+z	php:S1488É"_Immediately return this expression instead of assigning it to the temporary variable "$result".(¶§Û”şÿÿÿÿ
+9php:S125À"Remove this commented out code.(¼è÷ïøÿÿÿÿ
+z	php:S1488²"_Immediately return this expression instead of assigning it to the temporary variable "$result".(¶§Û”şÿÿÿÿ
+H	php:S1172£"-Remove the unused function parameter "$user".(§Í—òùÿÿÿÿ
+hphp:S107B"HThis function has 11 parameters, which is greater than the 7 authorized.(¥¿®Àüÿÿÿÿ8Ò’ÊØÃ.
+@php:S125"Remove this commented out code.( æÓ÷úÿÿÿÿ8Ò’ÊØÃ.
+z	php:S1488c"eImmediately return this expression instead of assigning it to the temporary variable "$contributors".(¤¥ú
+~	php:S1488u"dImmediately return this expression instead of assigning it to the temporary variable "$contributor".(àÑ¬Œÿÿÿÿÿ
+	php:S1488ç"_Immediately return this expression instead of assigning it to the temporary variable "$result".(¶§Û”şÿÿÿÿ8Ñ€°¤Á.

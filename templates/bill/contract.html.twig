@@ -1,0 +1,90 @@
+<page>
+	<style type="text/css">
+		page{
+			max-width: 100%;
+		}
+        page_header{
+            width : 100%;
+        }
+
+		table { 
+			color: black; 
+			font-family: helvetica; 
+			line-height: 5mm; 
+			border-collapse: collapse;
+             
+		}
+		.detail{
+			font-size : 9px;
+		}
+		
+		.tb{
+			margin:auto;
+			width: 500px;
+		}
+
+		.tb td {
+			word-wrap: break-word;         /* All browsers since IE 5.5+ */
+			overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+		}
+		table th {
+			background :  #2F75B9;
+            color : white;
+			padding : 5px;
+        }
+        table tr td {
+            padding : 10px;
+        }
+
+		td table tr td {
+            padding : 1px;
+        }
+	
+		p { margin: 5px; color: black; }
+		.border th { 
+			border: 1px solid #000;  
+			color: white; 
+			background: #000; 
+			padding: 5px; 
+			font-weight: normal; 
+			font-size: 14px; 
+			text-align: center; 
+		}
+
+
+.form-fieldset{
+    border: 1px solid black;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+		
+	</style>
+
+
+
+	<!--<div style="float: top">
+		<img src="https://www.afrikpay.com/assets/img/partners/crifat.png" width="150" style="float: left; margin-top: 20px"/>
+	</div>-->
+
+  <page_header>
+
+   <div class="" style="float: top">
+                    <img src="https://www.afrikpay.com/assets/img/partners/crifat.png" width="150" alt="Crifat Logo"  style="float: left; margin-top: 10px"><br>
+                <div class="col-md-8" style="width=400 ;float: right; margin-left : 20px; text-align: center">
+                    <h3>CONTRAT</h3>
+                     <h4> {{ subscription.getSubscriberId().getSubscriberFirstname() }}  {{ subscription.getSubscriberId().getSubscriberLastname() }} </h4>
+                   
+                </div>
+            </div>
+		
+	</page_header>
+
+           
+        
+
+
+	<page_footer>
+		
+	</page_footer>
+
+</page>

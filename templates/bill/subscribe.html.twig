@@ -1,0 +1,519 @@
+<page>
+	<style type="text/css">
+		page{
+			max-width: 100%;
+		}
+        page_header{
+            width : 100%;
+        }
+
+		table { 
+			color: black; 
+			font-family: helvetica; 
+			line-height: 5mm; 
+			border-collapse: collapse;
+             
+		}
+		.detail{
+			font-size : 9px;
+		}
+		
+		.tb{
+			margin:auto;
+			width: 500px;
+		}
+
+		.tb td {
+			word-wrap: break-word;         /* All browsers since IE 5.5+ */
+			overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+		}
+		table th {
+			background :  #2F75B9;
+            color : white;
+			padding : 5px;
+        }
+        table tr td {
+            padding : 10px;
+        }
+
+		td table tr td {
+            padding : 1px;
+        }
+	
+		p { margin: 5px; color: black; }
+		.border th { 
+			border: 1px solid #000;  
+			color: white; 
+			background: #000; 
+			padding: 5px; 
+			font-weight: normal; 
+			font-size: 14px; 
+			text-align: center; 
+		}
+
+
+.form-fieldset{
+    border: 1px solid black;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+		
+	</style>
+
+
+
+	<!--<div style="float: top">
+		<img src="https://www.afrikpay.com/assets/img/partners/crifat.png" width="150" style="float: left; margin-top: 20px"/>
+	</div>-->
+
+  <page_header>
+
+   <div class="" style="float: top">
+                    <img src="https://www.afrikpay.com/assets/img/partners/crifat.png" width="150" alt="Crifat Logo"  style="float: left; margin-top: 10px"><br>
+                <div class="col-md-8" style="width=400 ;float: right; margin-left : 20px; text-align: center">
+                    <h3>FORMULAIRE DE SOUSCRIPTION</h3>
+                    N&deg; 12551 <br> <span>Date : </span>  <br>   <span>Agence : </span> 
+                   
+                </div>
+            </div>
+		
+	</page_header>
+
+           
+            <div style="margin-top : 100px">
+                <h5>I. IDENTITE DU SOUSCRIPTEUR (Obligatoire)</h5>
+                <div class="form-fieldset">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                              <label for="">Nom(s) - prenom(s)</label>
+                              <b><span>{{ subscription.getSubscriberId().getSubscriberFirstname() }}  {{ subscription.getSubscriberId().getSubscriberLastname() }}</span></b>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                              <label for="">Representant(s) personne(s) Morale(s)</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberDirectorFirstname() }} {{ subscription.getSubscriberId().getSubscriberDirectorLastname() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                              <label for="">Date et lieu de naissance:</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberBirthdate() | date('Y-m-d H:i:s')}} à {{ subscription.getSubscriberId().getSubscriberBirthPlace() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="">
+                              <label for="">N&deg; CNI/Passport</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberIdentityCardNumber() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="">
+                              <label for="">D&eacute;livr&eacute;e le :</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberIdentityCardDeliveryDate() | date('Y-m-d H:i:s')}}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="">
+                              <label for="">&agrave; :</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberIdentityCardDeliveryPlace() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="">
+                              <label for="">Sexe : </label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberGender() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        {#<div class="col-md-2">#}
+                            {#<div class="form-checkbox">#}
+                              {#<label >#}
+                                  {#Masculin#}
+                                    {#<input type="checkbox" class="form-checkbox-input" value="checkedValue" >#}
+                              {#</label>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-2">#}
+                            {#<div class="form-checkbox">#}
+                              {#<label >#}
+                                  {#F&eacute;minin#}
+                                {#<input type="checkbox" class="form-checkbox-input" value="checkedValue">#}
+                              {#</label>#}
+                            {#</div>#}
+                        {#</div>#}
+                        <div class="col-md-6">
+                            <div class="">
+                              <label for="">Nationalite : </label>
+                                <span>{{ subscription.getSubscriberId().getSubscriberNationality() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="">
+                              <label for="">Tel :</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberTelephone() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="">
+                              <label for="">Email :</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberEmail() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="">
+                              <label for="">Profession :</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberProfession() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="">
+                              <label for="">ville :</label>
+                              <span>{{ subscription.getSubscriberId().getSubscriberTown() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="">
+                              <label for="">Nouveau client : </label>
+                              <!-- <span>____________________________________</span> -->
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Oui
+                                <input type="checkbox" class="form-checkbox-input" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Non
+                                <input type="checkbox" class="form-checkbox-input" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                              <label for="">Souhaitez-vous associer un tiers a ce contrat? </label>
+                              <!-- <span>____________________________________</span> -->
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Oui
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Non
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                              <label for="">Nom et prenom du partenaire/representant:</label>
+                                <span>{{ subscription.getSubscriptionPartner()['subscription_partner_firstname'] }}  {{ subscription.getSubscriptionPartner()["subscription_partner_lastname"] }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                              <label for="">Tel:</label>
+                                <span>{{ subscription.getSubscriptionPartner()["subscription_partner_phone"] }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                              <label for="">Mail:</label>
+                                <span>{{ subscription.getSubscriptionPartner()["subscription_partner_email"] }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                              <label for="">Situation matrimoniale:</label>
+                                <span>{{ subscription.getSubscriberId().getSubscriberMaritalStatus() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                              <label for="">Situation professionnelle:</label>
+                                <span>{{ subscription.getSubscriberId().getSubscriberProfessionalStatus() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                              <label for="">revenu estimatif:</label>
+                                <span>{{ subscription.getSubscriberId().getSubscriberRevenu() }}</span>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            Origine des fonds (Obligatoire):
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Salaire
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Tontine
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Epagne
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-checkbox">
+                              <label >
+                                  Pr&ecirc;t
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-checkbox">
+                              <label >
+                                  Autre (&agrave; pr&eacute;ciser)
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5>II. OFFRES CHOISIES (Obligatoire)</h5>
+                <div class="form-fieldset">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-checkbox">
+                              <label >
+                                  Promo agro
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-checkbox">
+                              <label >
+                                  Promo elevage
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-checkbox">
+                              <label >
+                                  Culture/filiere: 
+                                <!-- <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" > -->
+                              </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="">
+                              <label for="">N.ha/B:</label>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="">
+                              <label for="">Montant:</label>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                              <label for="">En lettre:</label>
+                              <!-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-checkbox">
+                              <label >
+                                  Plantation cle en main
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-checkbox">
+                              <label >
+                                  Plantation pour tous
+                                <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" >
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-checkbox">
+                              <label >
+                                  Golden farmer: 
+                                <!-- <input type="checkbox" class="form-checkbox-input" name="" id="" value="checkedValue" > -->
+                              </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-checkbox">
+                              <label >
+                                  Autres Offres:
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-checkbox">
+                              <label >
+                                  N.ha:
+                              </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-checkbox">
+                              <label >
+                                  Montant total: 
+                              </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                                En lettre
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="">
+                                Mode de paiement:
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="">
+                                banque(s):
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="">
+                                RIB souscripteur:
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="">
+                                Code banque:
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="">
+                                Code agence:
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="">
+                                N&deg; compte:
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="">
+                                Cle:
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="">
+                                IBAN:
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5>III. AUTRES INFORMATIONS</h5>
+                <div class="form-fieldset">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="">
+                                Comment avez-vous connu le CRIFAT
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+	<page_footer>
+		
+	</page_footer>
+
+</page>

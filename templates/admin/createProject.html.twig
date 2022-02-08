@@ -1,0 +1,92 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Creation d'un projet{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        legend.col-form-label{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        #project_form_project_mainimage{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        #project_form_project_images{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        #project_form_project_documents{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        #project_form_project_mainImage{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row mb-2 mt-2">
+        <div class="col-12">
+            <a href="{{ path('createManager') }}" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Créer manager de projet</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-20">
+                    {{ form_start(form, {'attr': {'id': 'projectForm'}}) }}
+
+                        <div class="my-custom-class-for-errors">
+                            {{ form_errors(form) }}
+                        </div>
+
+                        {{ form_row(form.project_name) }}
+                        {{ form_row(form.project_shortdescription) }}
+                        {{ form_row(form.project_cost) }}
+                        {{ form_row(form.project_numberaction) }}
+                        {{ form_row(form.project_minnumberaction) }}
+                        {{ form_row(form.project_startdate) }}
+                        {{ form_row(form.project_enddate) }}
+                        {{ form_row(form.project_mainimage) }}
+                        {{ form_row(form.project_images) }}
+                        {{ form_row(form.project_documents) }}
+                        {{ form_row(form.project_videourl) }}
+                        {{ form_row(form.project_longdescription) }}
+
+                    {{ form_end(form) }}
+                </div>
+            </div> <!-- end card-box -->
+        </div> <!-- end col -->
+    </div>
+{% endblock %}

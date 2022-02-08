@@ -1,0 +1,91 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Détail de l'investisseur{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="row mb-2">
+            <div class="col-12">
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    {{ message }}
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+    {#<div class="row mb-2">#}
+    {#<div class="col-12">#}
+    {#<div class="alert alert-success alert-dismissable">#}
+    {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+    {#{% for message in app.flashes('success') %}#}
+    {#{{ message }}#}
+    {#{% endfor %}#}
+    {#</div>#}
+
+    {#</div>#}
+    {#</div>#}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="text-center card-box">
+                <div class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-dots-vertical"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-left">
+                        <p class=""><strong>Civilité :</strong> <span class="m-l-15">{{ user[0].getSubscriberCivility() }}</span></p>
+
+                        <p class=""><strong>Nom :</strong><span class="m-l-15">{{ user[0].getSubscriberFirstname() }}</span></p>
+
+                        <p class=""><strong>Prénom :</strong> <span class="m-l-15">{{ user[0].getSubscriberLastname() }}</span></p>
+
+                        <p class=""><strong>Genre :</strong> <span class="m-l-15">{{ user[0].getSubscriberGender() }}</span></p>
+
+                        <p class=""><strong>Date de naissance :</strong> <span class="m-l-15">{{ user[0].getSubscriberBirthdate() | date('Y-m-d H:i:s') }}</span></p>
+
+                        <p class=""><strong>Lieu de naissance :</strong> <span class="m-l-15">{{ user[0].getSubscriberBirthPlace() }}</span></p>
+
+                        <p class=""><strong>Téléphone :</strong> <span class="m-l-15">{{ user[0].getSubscriberTelephone() }}</span></p>
+
+                        <p class=""><strong>Nationalité :</strong> <span class="m-l-15">{{ user[0].getSubscriberNationality() }}</span></p>
+
+                        <p class=""><strong>Ville de résidence :</strong> <span class="m-l-15">{{ user[0].getSubscriberTown() }}</span></p>
+
+                        <p class=""><strong>Email :</strong> <span class="m-l-15">{{ user[0].getSubscriberEmail() }}</span></p>
+
+                        <p class=""><strong>Numéro de Cni :</strong> <span class="m-l-15">{{ user[0].getSubscriberIdentityCardNumber() }}</span></p>
+
+                        <p class=""><strong>Date de délivrance de la Cni :</strong> <span class="m-l-15">{{ user[0].getSubscriberIdentityCardDeliveryDate() | date('Y-m-d H:i:s') }}</span></p>
+
+                        <p class=""><strong>Lieu de délivrance de la Cni :</strong> <span class="m-l-15">{{ user[0].getSubscriberIdentityCardDeliveryPlace() }}</span></p>
+
+                        <p class=""><strong>Scan de la Cni :</strong> <span class="m-l-15"><a href="../../companies_documents/subscriber_images/{{ package.getUrl(user[0].getSubscriberImage())}}">Télécharger</a></span></p>
+
+                        <p class=""><strong>Profession :</strong> <span class="m-l-15">{{ user[0].getSubscriberProfession() }}</span></p>
+
+                        <p class=""><strong>Status marital :</strong> <span class="m-l-15">{{ user[0].getSubscriberMaritalStatus() }}</span></p>
+
+                        <p class=""><strong>Revenu estimatif :</strong> <span class="m-l-15">{{ user[0].getSubscriberRevenu() }}</span></p>
+
+                        <p class=""><strong>Origine des fonds :</strong> <span class="m-l-15">{{ user[0].getSubscriberRevenuOrigine() }}</span></p>
+
+                        <p class=""><strong>Nom d'utilisateur :</strong> <span class="m-l-15">{{ user[0].getSubscriberUsername() }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

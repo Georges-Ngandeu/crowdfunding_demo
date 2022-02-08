@@ -1,0 +1,295 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CrowdFunding</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('mystyles.css') }}" />
+    <link rel="icon" href="" type="image/x-icon"/>
+
+<body class="campaign-detail">
+<div id="wrapper">
+    <header id="header" class="site-header">
+        <div class="container">
+            <div class="site-brand">
+                <a href="{{ path('home') }}"><img src="{{ asset('images/crifat.jpg') }}" alt=""></a>
+            </div><!-- .site-brand -->
+            <div class="right-header">
+                <nav class="main-menu">
+                    <button class="c-hamburger c-hamburger--htx"><span></span></button>
+                    <ul>
+                        <li>
+                            <a href="#">Accueil<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Lien 1</a></li>
+                                <li><a href="#">Lien 2</a></li>
+                                <li><a href="#">Lien 3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Nos projets<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Lien 1</a></li>
+                                <li><a href="#">Lien 2</a></li>
+                                <li><a href="#">Lien 3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Contact<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Lien 1</a></li>
+                                <li><a href="#">Lien 2</a></li>
+                                <li><a href="#">Lien 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav><!-- .main-menu -->
+                <div class="search-icon">
+                    <a href="#" class="ion-ios-search-strong"></a>
+                    <div class="form-search"></div>
+                    <form action="#" method="POST" id="searchForm">
+                        <input type="text" value="" name="search" placeholder="Search..." />
+                        <button type="submit" value=""><span class="ion-ios-search-strong"></span></button>
+                    </form>
+                </div>
+            </div><!--. right-header -->
+        </div><!-- .container -->
+    </header><!-- .site-header -->
+
+    <main id="main" class="site-main">
+        <div class="page-title background-campaign">
+            <div class="container">
+                <h1>The Oreous Pillow</h1>
+                <div class="breadcrumbs">
+                    <ul>
+                        <li><a href="#">Home</a><span>/</span></li>
+                        <li>The Oreous Pillow</li>
+                    </ul>
+                </div><!-- .breadcrumbs -->
+            </div>
+        </div><!-- .page-title -->
+        <div class="campaign-content">
+            <div class="container">
+                <div class="campaign">
+                    <div class="campaign-item clearfix">
+                        <div class="campaign-image">
+                            <div id="owl-campaign" class="campaign-slider">
+                                {% for key, image in project.images[project.getName()] %}
+                                    <div class="item"><img src="../companies_documents/{{ package.getUrl(project.getName())|formattedProjectName }}/{{ image }}" alt=""></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="campaign-box">
+                            <a href="#" class="category">{{ project.getProjectGroup() }}</a>
+                            <h3>{{ project.getName()}}</h3>
+                            <div class="campaign-description">
+                                <p>
+                                    {{ project.getShortDescription() }}
+                                </p>
+                            </div>
+                            <div class="campaign-author clearfix">
+                                <div class="author-profile">
+                                    <a class="author-icon" href="#"><img src="{{ asset('images/author-01.png') }}" alt=""></a>by <a class="author-name" href="#">{{ project.getAuthorProject().getFirstName() }}</a>
+                                </div>
+                                <div class="author-address"><span class="ion-location"></span>{{ project.getAuthorProject().getLocation() }}</div>
+                            </div>
+                            <div class="process">
+                                <div class="raised"><span></span></div>
+                                <div class="process-info">
+                                    <div class="process-funded"><span>{{ project.getCost() }}</span>Objectif</div>
+                                    <div class="process-pledged"><span>{{ project.getEngaged() }} Xaf</span>Engagé</div>
+                                    <div class="process-time"><span>37</span>Souscripteurs</div>
+                                    <div class="process-time ml-4"><span>23</span>Jours</div>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <button class="btn-primary" type="submit">Je soutiens ce projet</button>
+                            </div>
+                            <div class="share">
+                                <p>Je partage ce projet</p>
+                                <ul>
+                                    <li class="share-facebook"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li class="share-twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li class="share-google-plus"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li class="share-linkedin"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li class="share-code"><a href="#"><i class="fa fa-code" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .campaign-content -->
+        <div class="campaign-history">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="campaign-tabs">
+                            <ul class="tabs-controls">
+                                <li class="active" data-tab="campaign"><a href="#">Histoire du projet</a></li>
+                                <li data-tab="video"><a id="video-tab-link" href="#">Video de la campagne</a></li>
+                            </ul>
+                            <div class="campaign-content">
+                                <div id="campaign" class="tabs active">
+                                    <div class="fr-view">
+                                        {{ project.getLongDescription() | raw }}
+                                    </div>
+                                </div>
+                                <div id="video" class="tabs active">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" id="video-tab" src="" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .main-content -->
+                    <div class="col-lg-4">
+                        <div class="support support-campaign">
+                            <h3 class="support-campaign-title">Back this Campaign</h3>
+                            <div class="plan">
+                                <a href="javascript:void(0)">
+                                    <h4>Pledge $100 - $200</h4>
+                                    <div class="plan-desc"><p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master builder of human happiness.</p></div>
+                                    <div class="plan-date">May, 2017</div>
+                                    <div class="plan-author">Estimated Delivery</div>
+                                    <div class="backer">2 backer</div>
+                                </a>
+                            </div>
+                            <div class="plan">
+                                <a href="javascript:void(0)">
+                                    <h4>Pledge $200 - $300</h4>
+                                    <div class="plan-desc"><p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself</p></div>
+                                    <div class="plan-date">May, 2017</div>
+                                    <div class="plan-author">Estimated Delivery</div>
+                                    <div class="backer">35 backer</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div><!-- .sidebar -->
+                </div>
+            </div>
+        </div><!-- .campaign-history -->
+    </main><!-- .site-main -->
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-4 col-4">
+                        <div class="footer-menu-item">
+                            <h3>Our company</h3>
+                            <ul>
+                                <li><a href="#">What is Startup Idea</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">How It Works</a></li>
+                                <li><a href="#">What Is This</a></li>
+                                <li><a href="#">Jobs</a></li>
+                                <li><a href="#">Press</a></li>
+                                <li><a href="#">Starts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-4">
+                        <div class="footer-menu-item">
+                            <h3>Campaign</h3>
+                            <ul>
+                                <li><a href="#">Start Your Campaign</a></li>
+                                <li><a href="#">Pricing Campaign</a></li>
+                                <li><a href="#">Campaign Support</a></li>
+                                <li><a href="#">Trust &amp; Safety</a></li>
+                                <li><a href="#">Support</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-4">
+                        <div class="footer-menu-item">
+                            <h3>Explore</h3>
+                            <ul>
+                                <li><a href="#">Design &amp; Art</a></li>
+                                <li><a href="#">Crafts</a></li>
+                                <li><a href="#">Film &amp; Video</a></li>
+                                <li><a href="#">Food</a></li>
+                                <li><a href="#">Book</a></li>
+                                <li><a href="#">Games</a></li>
+                                <li><a href="#">Technology</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 col-12">
+                        <div class="footer-menu-item newsletter">
+                            <h3>Newsletter</h3>
+                            <div class="newsletter-description">Private, secure, spam-free</div>
+                            <form action="s" method="POST" id="newsletterForm">
+                                <input type="text" value="" name="s" placeholder="Enter your email..." />
+                                <button type="submit" value=""><span class="ion-android-drafts"></span></button>
+                            </form>
+                            <div class="follow">
+                                <h3>Follow us</h3>
+                                <ul>
+                                    <li class="facebook"><a target="_Blank" href="https://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li class="twitter"><a target="_Blank" href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li class="instagram"><a target="_Blank" href="https://www.instagram.com"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li class="google"><a target="_Blank" href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li class="youtube"><a target="_Blank" href="https://www.youtube.com"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-top">
+                    <p class="payment-img"><img src="{{ asset('images/assets/payment-methods.png') }}" alt=""></p>
+                </div>
+            </div>
+        </div><!-- .footer-menu -->
+        <div class="footer-copyright">
+            <div class="container">
+                <p class="copyright">2020 by Afrikpay. All Rights Reserved.</p>
+                <a href="#" class="back-top">Back to top<span class="ion-android-arrow-up"></span></a>
+            </div>
+        </div>
+    </footer><!-- site-footer -->
+</div><!-- #wrapper -->
+<!-- jQuery -->
+<script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ asset('libs/popper/popper.js') }}"></script>
+<script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('libs/owl-carousel/carousel.min.js') }}"></script>
+<script src="{{ asset('libs/jquery.countdown/jquery.countdown.min.js') }}"></script>
+<script src="{{ asset('libs/wow/wow.min.js') }}"></script>
+<script src="{{ asset('libs/isotope/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('libs/bxslider/jquery.bxslider.min.js') }}"></script>
+<script src="{{ asset('libs/magicsuggest/magicsuggest-min.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.core.js') }}"></script>
+<script src="{{ asset('libs/quilljs/js/quill.js') }}"></script>
+<!-- orther script -->
+<script src="{{ asset('js/main.js') }}"></script>
+<script>
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>
+<script>
+    $(window).load(function(){
+        $('#video-tab-link').click(function (e) {
+            //console.log("Done it!");
+            $('#video-tab').attr('src','{{ project.getVideoUrl() }}');
+        });
+    });
+</script>
+</body>
+</html>

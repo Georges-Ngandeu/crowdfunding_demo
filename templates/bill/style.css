@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(180, 180, 184);
+}
+.page-v{
+    width: 210mm;
+    height: 297mm;
+    border: 1px solid silver;
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.3);
+    background-color: white;
+    margin: 50px auto;
+    padding: 30px;
+}
+.page{
+    width: 210mm;
+    border: 1px solid silver;
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.3);
+    background-color: white;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+.form-fieldset{
+    border: 2px solid black;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}

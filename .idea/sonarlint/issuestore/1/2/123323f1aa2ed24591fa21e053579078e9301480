@@ -1,0 +1,7 @@
+
+?	php:S1481˜")Remove this unused "$key" local variable.(ØíÈ
+~	php:S4144“"hUpdate this method so that its implementation is not identical to "formatProjectFolderName" on line 133.(»íˆÖ
+k	php:S1192¦"PDefine a constant instead of duplicating this literal "/bank_receipts/" 3 times.(¶µªèıÿÿÿÿ
+	php:S1192"vDefine a constant instead of duplicating this literal "Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()" 5 times.(Š›ìúÿÿÿÿ
+?	php:S1481Š")Remove this unused "$key" local variable.(ØíÈ
+q	php:S1192»"TDefine a constant instead of duplicating this literal "/subscriber_images/" 3 times.(àÆÅ•8…Ù«Ä.

@@ -1,0 +1,55 @@
+{% extends 'home/base.html.twig' %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>{{ project.getName()}}</h1>
+        </div>
+    </div><!-- .page-title -->
+    <div class="container">
+        <h2 class="mb-3 ">Récapitulatif du paiement</h2>
+        <div class="main-content">
+            <div class="product-table">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nom du projet</th>
+                        <th>Somme engagé</th>
+                        <th>Moyen de paiement</th>
+                        <th>Numéro de téléphone</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody><tr>
+                        <td>
+                            <img src="../../../../../../companies_documents/{{ project.getName()|formattedProjectName }}/{{ project.getMainImage()}}" alt="" style="width:8rem;">
+                            <h3>{{ project.getName()}}</h3>
+                        </td>
+                        <td>{{ amount}}</td>
+                        <td>
+                            {{ payment_method }}
+                        </td>
+                        <td>
+                            {{ phone }}
+                        </td>
+                        <td>
+                            {#<button type="submit" value="Send Messager" class="btn-primary">Je confirme le paiement</button>#}
+                            {{ form(form) }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!-- .product-table -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+//        $(document).ready(function() {
+//            if(window.location.href.indexOf('#exampleModal') != -1) {
+//                 $('#myModal').modal('show');
+//            }
+//        });
+    </script>
+{% endblock %}

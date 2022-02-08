@@ -1,0 +1,245 @@
+{% extends 'home/base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        legend.col-form-label{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        #author_form_authorImage{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+        }
+
+        .form-check-label {
+            padding-left: 1.25rem;
+            margin-bottom: 0px;
+            padding-top: 1rem;
+            margin-left: 1rem;
+        }
+
+        #engagement_form_engagement, #engagement_form_assistance{
+            width: 1rem;
+            margin-left: 0.1rem;
+        }
+    </style>
+    {{ encore_entry_link_tags('engagementForm') }}
+{% endblock %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>{{ project.getProjectName() }}</h1>
+        </div>
+    </div><!-- .page-title -->
+
+    <div class="container">
+        <div class="main-content">
+            <div class="form-login form-register">
+                <h2>Formulaire de souscription</h2>
+                {{ form_start(form, {'attr': {'id': 'userForm'}}) }}
+
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+
+                <p class="mb-2"><span class="text-danger" style="font-size: 1rem;">Le montant de la part pour ce projet vaut:</span> <span class="font-weight-bold">{{ project.getProjectCost()/project.getProjectNumberaction() }} Xaf</span></p>
+                <p class="mb-4"><span class="text-danger" style="font-size: 1rem;">Le nombre minium de souscription est:</span> <span class="font-weight-bold">{{ project.getProjectMinnumberaction() }}</span></p>
+
+                <div id="engagementForm"></div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Nom</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberFirstname()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Prénom</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberLastname()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Personne morale</label>
+                        <input class="form-control" type="text" placeholder="" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Representant personne morale</label>
+                        <input class="form-control" type="text" placeholder="" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Date de naissance</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberBirthdate()| date('Y-m-d H:i:s')}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Lieu de naissance</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberBirthPlace()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">N° CNI/Passport</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberIdentityCardNumber()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">Délivré le</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberIdentityCardDeliveryDate()| date('Y-m-d H:i:s')}}" readonly>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">A</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberIdentityCardDeliveryPlace()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Téléphone</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberTelephone()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberEmail()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Profession</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberProfession()}}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Ville</label>
+                        <input class="form-control" type="text" placeholder="{{subscriber[0].getSubscriberTown()}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="margin-left: -2rem">
+                        {{ form_row(form.subscription_partner_option) }}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.subscription_partner_firstname) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.subscription_partner_lastname) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.subscription_partner_phone) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.subscription_partner_email) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.subscription_number) }}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.subscription_mobile_operator) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form_row(form.subscription_mobile_account) }}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        {{ form_row(form.subscription_campaign_awareness) }}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+                            Je souscris à ce projet
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle"><h4>Conditions générales de ventes</h4></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                UBA Website Terms of Use
+                                Thank you for visiting our website. This section contains the Terms of Use of this website. By accessing this website and any of its pages, you are agreeing to these Terms. UBA Plc reserves the right to amend the terms from time to time without notice.
+
+                                Use of Information and Materials
+                                The services and products offered on this website ("Services and Products") are for information purposes only. No persons gaining access to this website in any jurisdictions may treat any materials or information provided on this website as constituting an invitation to them to subscribe for the services, nor should they in any event use such services, unless in the relevant jurisdiction, the services could lawfully be made to them. Accordingly, nothing contained in this website shall constitute an offer or solicitation by anyone in any jurisdiction in which such offer or solicitation is not lawful. It is the responsibility of any person to inform themselves of and to observe all applicable laws and regulations of any relevant jurisdiction before they subscribe for the services. UBA Plc shall have the final determination of eligibility to subscribe to any of the services.
+                                The information contained in these pages is not intended to provide professional advice and should not be relied upon in that regard. Persons accessing these pages are advised to obtain appropriate professional advice when necessary at all times in their respective jurisdiction.
+                                Copyright and Trademarks
+                                UBA Plc and its subsidiaries own the trademarks, logos and service marks displayed on this website. These may not be used without the written permission of the Bank or the party owning these. Materials on this site are protected by copyright. No part of these materials may be modified, reproduced, stored in a retrieval system, transmitted, copied, distributed or used in any other way for commercial or public purposes without the Bank’s prior written consent.
+
+                                No Warranties
+                                Whilst every care has been taken in preparing the information materials contained in this website, such information and materials are provided “as is” without warranty of any kind, either express or implied. In particular, no warranty regarding non-infringement, security, accuracy, fitness for a purpose or freedom from computer viruses is given in connection with such information and materials.
+
+                                Linked Websites
+                                UBA Plc or any other UBA Group member is not responsible for the contents available on or the set-up of any other websites linked to this site. Access to and use of such other websites is at the user’s own risk and subject to any terms and conditions applicable to such access/use. By providing hyperlinks to other websites, UBA shall not be deemed to endorse, recommend, approve, guarantee or introduce any third parties or the service/products they provide on their web site, or have any form of cooperation with such third parties and web sites. The bank is not a party to any contractual arrangements entered into between you and the provider of the external website unless otherwise expressly specified or agreed to by the Bank.
+
+                                Email
+                                Email messages sent to the bank over the Internet cannot be guaranteed to be completely secure. The bank is not responsible for any damages incurred by users if they send a message to the bank, or if the bank sends a message to them at their request, over the Internet. The bank is not responsible in any way for direct, indirect, special or consequential damages arising out of the use of this website.
+
+                                Transmitting over the Internet
+                                Due to the nature of the Internet, transactions may be subject to interruption, transmission blackout, delayed transmission and incorrect data transmission. The Bank is not liable for malfunctions in communications facilities not under its control that may affect the accuracy or timeliness of messages and transactions you send.
+
+                                Downloading
+                                Please note that any software downloaded from this website is at your own risk and the bank neither assumes nor accepts liability for any loss, damage (whether direct or indirect) howsoever caused, as a result of any computer viruses, ‘Trojan Horses’, ‘Worms’, software ‘bombs’ or similar items or processes.
+
+                                UBA Hyperlink Policy
+                                Hyperlinks from UBA Plc to Websites outside the UBA Group
+                                There may be cases on our website when the UBA provides hyperlinks to other locations or websites on the Internet. These hyperlinks lead to websites published or operated by third parties who are not affiliated with or in any way related to UBA. They have been included in our website to enhance your user experience and are presented for information purposes only. We endeavor to select reputable websites and sources of information for your convenience.
+
+                                However, by providing hyperlinks to an external website or webpage, UBA shall not be deemed to endorse, recommend, approve, guarantee or introduce any third parties or the services/ products they provide on their websites, or to have any form of cooperation with such third parties and websites unless otherwise stated by UBA Plc.
+
+                                We are not in any way responsible for the content of any externally linked website or webpage. You use or follow these links at your own risk and UBA is not responsible for any damages or losses incurred or suffered by you arising out of or in connection with your use of the link. UBA is not a party to any contractual arrangements entered into between you and the provider of the external website unless otherwise expressly specified or agreed to by UBA Plc.
+
+                                Any links to websites that contain downloadable software are provided for your convenience only. Again we are not responsible for any difficulties you may encounter in downloading the software or for any consequences from your doing so. Please remember that the use of any software downloaded from the Internet may be governed by a licence agreement and your failure to observe the terms of such licence agreement may result in an infringement of intellectual property rights of the relevant software provider which we are not in any way responsible.
+
+                                Our Trademarks and Copyright
+                                The content and information contained within our website or delivered to you in connection with your use of our website is the property of UBA Plc. The materials on this website are protected by copyright and no part of such materials may be modified, reproduced, stored in a retrieval system, transmitted (in any form or by any means), copied, distributed, used for creating derivative works or used in any other way for commercial or public purposes without the Bank’s prior written consent.
+                            </div>
+                            <div class="modal-footer">
+                                {{ form_row(form.subscribe) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('engagementForm') }}
+{% endblock %}

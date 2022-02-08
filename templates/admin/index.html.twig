@@ -1,0 +1,91 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="row mb-2">
+            <div class="col-12">
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    {{ message }}
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+    {#<div class="row mb-2">#}
+        {#<div class="col-12">#}
+            {#<div class="alert alert-success alert-dismissable">#}
+                {#<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>#}
+                {#{% for message in app.flashes('success') %}#}
+                    {#{{ message }}#}
+                {#{% endfor %}#}
+            {#</div>#}
+
+        {#</div>#}
+    {#</div>#}
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card-box widget-user">
+                <div class="text-center">
+                    <h2 class="text-custom" data-plugin="counterup">
+                        {% if projectStats|length > 0 %}
+                            {{ projectStats["publishedProjectStat"] }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </h2>
+                    <h5><a href="{{ path('listProject') }}">Projets Publiés</a></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card-box widget-user">
+                <div class="text-center">
+                    <h2 class="text-warning" data-plugin="counterup">
+                        {% if projectStats|length > 0 %}
+                            {{ projectStats["publishedProjectStat"] }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </h2>
+                    <h5><a href="{{ path('listProject') }}">Nombre total de projets</a></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card-box widget-user">
+                <div class="text-center">
+                    <h2 class="text-info" data-plugin="counterup">
+                        {% if projectStats|length > 0 %}
+                            {{ projectStats["onFinanceProjectStat"] }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </h2>
+                    <h5><a href="{{ path('listProject') }}">Projets en cours de financement</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card-box widget-user">
+                <div class="text-center">
+                    <h2 class="text-custom" data-plugin="counterup">
+                        {% if projectStats|length > 0 %}
+                            {{ projectStats["contributionPendingStat"] }}
+                        {% else %}
+                            0
+                        {% endif %}
+                    </h2>
+                    <h5><a href="{{ path('listSubscription') }}">Demande en attente de validation</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

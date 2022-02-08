@@ -1,0 +1,284 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CrowdFunding</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('mystyles.css') }}" />
+
+<body>
+<div id="wrapper">
+    <header id="header" class="site-header">
+        <div class="top-header clearfix">
+            <div class="container">
+                <ul class="socials-top">
+                    <li><a target="_Blank" href="https://www.facebook.com/CRIFATCameroun/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.twitter.com"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.google.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="http://www.linkedin.com"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a target="_Blank" href="https://www.youtube.com/channel/UC63W--2pmVK-xrU5xL0CiUA"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                </ul>
+                <div class="phone">
+                    Appeler le  (+237) 233 40 01 51
+                </div>
+            </div>
+        </div>
+        {% for message in app.flashes('success') %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        {{ message }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="container">
+            <div class="site-brand">
+                <a href="{{ path('home') }}"><img src="images/crifat.jpg" alt=""></a>
+            </div><!-- .site-brand -->
+            <div class="right-header">
+                <nav class="main-menu">
+                    <button class="c-hamburger c-hamburger--htx"><span></span></button>
+                    <ul>
+                        {% if is_granted("ROLE_SUBSCRIBER") %}
+                            <li>
+                                <i class="fa-li fa fa-check-square"></i>
+                                <a href="#">Mon compte<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Nom: {{ app.user.username }}</a></li>
+                                    <li><a href="{{ path('resetPassword') }}">Changer mot de passe</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav><!-- .main-menu -->
+                {% if is_granted("ROLE_SUBSCRIBER") %}
+                {% else %}
+                    <div class="login login-button">
+                        <a href="{{ path('loginUser') }}" class="btn-primary">Se connecter</a>
+                    </div>
+                {% endif %}
+
+            </div><!--. right-header -->
+        </div><!-- .container -->
+    </header><!-- .site-header -->
+
+    <main id="main" class="site-main">
+        <div class="sideshow">
+            <div class="container">
+                <div class="sideshow-content">
+                    <h1 class="wow fadeInUp" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">Donner vie à des idées de projets</h1>
+                    <div class="button wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                        <a href="#" class="btn-secondary">Voir tous les projets</a>
+                    </div>
+                </div><!-- .sideshow-content -->
+            </div>
+        </div>
+        <div class="campaigns">
+            <div class="container">
+                <h2 id="OurProjects" class="title" style="margin-bottom: 3rem; margin-top: 4rem;">Découvrer nos projets</h2>
+                <div class="campaign-content">
+                    {% if projects|length > 0 %}
+                        {% for project in projects %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="campaign-big-item clearfix">
+                                        <div class="campaign-box"><img src="companies_documents/{{ project.getProjectName()|formattedProjectName }}/{{ project.getProjectMainimage()}}" alt=""></div>
+                                        <div class="campaign-big-box">
+                                            <h3><a href="#">{{ project.getProjectName() }}</a></h3>
+                                            <div class="campaign-description">
+                                                {{ project.getProjectShortdescription() }}
+                                            </div>
+
+                                            <div class="process mb-3">
+                                                <div class="raised">
+                                                    <span style="width: {{ 540 - ((project.getProjectEngaged() * 540)/project.getProjectCost()) }}px;"></span>
+                                                </div>
+                                                <div class="">
+                                                    <div class="">
+                                                        <span style="font-weight: 500;">Somme engagé:</span> {{ project.getProjectEngaged() | number_format(0, '.', ',') }}Xaf/{{ project.getProjectCost() | number_format(0, '.', ',') }}Xaf
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="process mb-3">
+                                                <div class="raised">
+                                                    <span style="width:{{ 540 - (((((project.getProjectEnddate().diff(project.getProjectStartdate())).days) - ((project.getProjectEnddate().diff(project.getProjectStartdate())).days - (project.getProjectStartdate().diff(project.getTodaysDate())).days)) * 540)/(project.getProjectEnddate().diff(project.getProjectStartdate())).days) }}px;"></span>
+                                                </div>
+                                                <div class="">
+                                                    <div class="">
+                                                        <span style="font-weight: 500;">Jours restant:</span> {{ (project.getProjectEnddate().diff(project.getProjectStartdate())).days - (project.getProjectStartdate().diff(project.getTodaysDate())).days}} /{{ (project.getProjectEnddate().diff(project.getProjectStartdate())).days }}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="process mb-2">
+                                                <div class="">
+                                                    <div class="">
+                                                        <span style="font-weight: 500;">Cout de la souscription: {{ project.getProjectCost()/project.getProjectNumberaction() }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="process mb-2">
+                                                <div class="">
+                                                    <div class="">
+                                                        <span style="font-weight: 500;">Nombre minimum de souscription: {{ project.getProjectMinnumberaction() }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="process mb-2">
+                                                <div class="">
+                                                    <div class="">
+                                                        <span style="font-weight: 500;">Nombre de souscription enregistrés: {{ project.getProjectNumbercontributions() }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="button">
+                                                <a class="btn-primary" href="{{ path('projectEngagement', {'id': project.getId()}) }}">Je voudrais souscrire à ce projet</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="campaign-big-item clearfix">
+                                    <a href="#" class="campaign-big-image"><img src="images/grapes.jpg" alt=""></a>
+                                    <div class="campaign-big-box">
+                                        <a href="#" class="category">Agriculture</a>
+                                        <h3><a href="campaign_detail.html">Culture des grappes</a></h3>
+                                        <div class="campaign-description">He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.</div>
+                                        <div class="staff-picks-author">
+                                            <div class="author-profile">
+                                                <a class="author-avatar" href="#"><img src="images/staff-picks-author.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a>
+                                            </div>
+                                            <div class="author-address"><span class="ion-location"></span>Melbourne, Victoria, AU</div>
+                                        </div>
+                                        <div class="process">
+                                            <div class="raised"><span></span></div>
+                                            <div class="process-info">
+                                                <div class="process-pledged"><span>$10000</span>Objectif</div>
+                                                <div class="process-funded"><span>81%</span>Engagé</div>
+                                                <div class="process-time"><span>37</span>Contributeurs</div>
+                                                <div class="process-time"><span>23</span>Jours avant la fin</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="campaign-big-item clearfix">
+                                    <a href="#" class="campaign-big-image"><img src="images/carrot.jpg" alt=""></a>
+                                    <div class="campaign-big-box">
+                                        <a href="#" class="category">Agriculture</a>
+                                        <h3><a href="campaign_detail.html">Culture des carottes</a></h3>
+                                        <div class="campaign-description">He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.</div>
+                                        <div class="staff-picks-author">
+                                            <div class="author-profile">
+                                                <a class="author-avatar" href="#"><img src="images/staff-picks-author.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a>
+                                            </div>
+                                            <div class="author-address"><span class="ion-location"></span>Melbourne, Victoria, AU</div>
+                                        </div>
+                                        <div class="process">
+                                            <div class="raised"><span></span></div>
+                                            <div class="process-info">
+                                                <div class="process-pledged"><span>$10000</span>Objectif</div>
+                                                <div class="process-funded"><span>81%</span>Engagé</div>
+                                                <div class="process-time"><span>37</span>Contributeurs</div>
+                                                <div class="process-time"><span>23</span>Jours avant la fin</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="campaign-big-item clearfix">
+                                    <a href="#" class="campaign-big-image"><img src="images/fig.jpg" alt=""></a>
+                                    <div class="campaign-big-box">
+                                        <a href="#" class="category">Agriculture</a>
+                                        <h3><a href="campaign_detail.html">Culture des figues</a></h3>
+                                        <div class="campaign-description">He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment.</div>
+                                        <div class="staff-picks-author">
+                                            <div class="author-profile">
+                                                <a class="author-avatar" href="#"><img src="images/staff-picks-author.png" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a>
+                                            </div>
+                                            <div class="author-address"><span class="ion-location"></span>Melbourne, Victoria, AU</div>
+                                        </div>
+                                        <div class="process">
+                                            <div class="raised"><span></span></div>
+                                            <div class="process-info">
+                                                <div class="process-pledged"><span>$10000</span>Objectif</div>
+                                                <div class="process-funded"><span>81%</span>Engagé</div>
+                                                <div class="process-time"><span>37</span>Contributeurs</div>
+                                                <div class="process-time"><span>23</span>Jours avant la fin</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="latest-button"><a href="#" class="btn-primary">Tous les projets</a></div>
+            </div>
+        </div><!-- .latest -->
+    </main><!-- .site-main -->
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <p class="copyright">2020 by Afrikpay. All Rights Reserved.</p>
+                <a href="#" class="back-top">Back to top<span class="ion-android-arrow-up"></span></a>
+            </div>
+        </div>
+    </footer><!-- site-footer -->
+</div><!-- #wrapper -->
+<!-- jQuery -->
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="libs/popper/popper.js"></script>
+<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="libs/owl-carousel/owl.carousel.min.js"></script>
+<script src="libs/owl-carousel/carousel.min.js"></script>
+<script src="libs/jquery.countdown/jquery.countdown.min.js"></script>
+<script src="libs/wow/wow.min.js"></script>
+<script src="libs/isotope/isotope.pkgd.min.js"></script>
+<script src="libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="libs/magicsuggest/magicsuggest-min.js"></script>
+<script src="libs/quilljs/js/quill.core.js"></script>
+<script src="libs/quilljs/js/quill.js"></script>
+<!-- orther script -->
+<script src="js/main.js"></script>
+<script>
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+            theEvent.returnValue = false;
+            if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>
+</body>
+</html>

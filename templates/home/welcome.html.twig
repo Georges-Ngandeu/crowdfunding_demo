@@ -1,0 +1,84 @@
+{% extends 'home/base.html.twig' %}
+
+{% block body %}
+    <div class="page-title background-campaign">
+        <div class="container">
+            <h1>{{ project.getName()}}</h1>
+        </div>
+    </div><!-- .page-title -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 main-content">
+                <div class="" style="background-color: #f5f6f6; padding: 36px 30px;">
+                    <article class="post">
+                        <span>Creative Furniture</span>
+                        <h2>Live Work by MSDS Studio</h2>
+                        <div class="shop-detail-img">
+                            <div id="owl-shop" class="shop-slider">
+                                <div class="item"><img src="{{ asset('images/shop-details-01.jpg') }}" alt=""></div>
+                                <div class="item"><img src="{{ asset('images/shop-details-02.jpg') }}" alt=""></div>
+                                <div class="item"><img src="{{ asset('images/shop-details-03.jpg') }}" alt=""></div>
+                                <div class="item"><img src="{{ asset('images/shop-details-04.jpg') }}" alt=""></div>
+                            </div>
+                        </div>
+                        <h3>Descriptions</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, ut! Tenetur explicabo laudantium fugit pariatur sunt odio maxime, sint cum, doloribus libero.</p>
+                        <p>Laboriosam dolor quaerat autem hic atque quia omnis minus, eum delectus, vitae optio asperiores nulla dolorem quo impedit doloribus ullam dignissimos commodi sint perferendis molestias totam recusandae itaque eius.</p>
+                        <p>Tenetur enim aut rerum quis nihil, voluptatem quo officia sint molestiae sequi. Illum repellat nam reprehenderit iusto. Cupiditate neque natus voluptatibus recusandae veniam animi illo beatae explicabo accusamus, perspiciatis totam numquam unde dolor quos, laboriosam minus qui in, quasi nam distinctio voluptas omnis sed eligendi autem nulla!</p>
+                        <div class="reviews">
+                            <h3>Reviews (0)</h3>
+                            <form action="#" method="POST" id="shopdetailsForm" class="clearfix">
+                                <div class="field">
+                                    <textarea rows="8" placeholder="Your review"></textarea>
+                                </div>
+                                <div class="field clearfix">
+                                    <div class="align-left">
+                                        <input type="text" value="" name="s" placeholder="Your Name" />
+                                    </div>
+                                    <div class="align-right">
+                                        <input type="text" value="" name="s" placeholder="Your Email" />
+                                    </div>
+                                </div>
+                                <div class="reviews-vote clearfix">
+                                    <div class="vote">
+                                        <span>Your Rating</span>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <button type="submit" value="Send Review" class="btn-primary">Submit Review</button>
+                                </div>
+                            </form>
+                        </div>
+                    </article>
+                </div>
+            </div><!-- .main-content -->
+            <div class="col-lg-4 sidebar">
+                <aside class="widget widget-action">
+                    <h3 class="widget-title">$55.00</h3>
+                    <div class="widget-content">
+                        <div class="action-desc"><p>Simple, adjustable, portable - standing desks that transform the way you work</p></div>
+                        <button type="submit" value="" class="btn-primary"><span class="ion-bag"></span>Add to card</button>
+                    </div>
+                </aside><!-- .widget-search -->
+                <aside class="widget widget-share">
+                    <h3 class="widget-title">Share this</h3>
+                    <div class="widget-content">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </aside><!-- .widget-search -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

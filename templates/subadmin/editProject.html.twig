@@ -1,0 +1,75 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edition d'un projet{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        legend.col-form-label{
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        #project_form_images{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        #project_form_documents{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        #project_form_mainImage{
+            min-width: 14rem;
+            max-width: 100%;
+            height: calc(2.25rem + 2px);
+            margin: 0;
+            opacity: 1;
+            margin-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        label {
+            font-weight: 400;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box">
+                <div class="p-20">
+                    {{ form_start(form, {'attr': {'id': 'projectForm'}}) }}
+
+                    <div class="my-custom-class-for-errors">
+                        {{ form_errors(form) }}
+                    </div>
+
+                    {{ form_row(form.author) }}
+                    {{ form_row(form.group) }}
+                    {{ form_row(form.short_description) }}
+                    {{ form_row(form.cost) }}
+                    {{ form_row(form.number_action) }}
+                    {{ form_row(form.min_number_action) }}
+                    {{ form_row(form.startDate) }}
+                    {{ form_row(form.endDate) }}
+                    {{ form_row(form.videoUrl) }}
+                    {{ form_row(form.long_description) }}
+
+                    {{ form_end(form) }}
+                </div>
+            </div> <!-- end card-box -->
+        </div> <!-- end col -->
+    </div>
+{% endblock %}

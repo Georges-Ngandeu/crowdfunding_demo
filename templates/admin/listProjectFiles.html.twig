@@ -1,0 +1,90 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des fichiers de projets{% endblock %}
+
+{% block body %}
+    <div class="row mb-2 mt-2">
+        <div class="col-12">
+            <a href="{{ path('createProject') }}" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Créer un projet</a>
+            <a href="{{ path('createManager') }}" type="button" class="btn btn-primary waves-effect w-md waves-light m-b-5">Créer un manager de projet</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box table-responsive">
+                <div id="datatable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="datatable" class="table table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                                <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="">Nom</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Image principal</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Images descriptives</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Documents</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="">Video</th>
+                                    <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 165px;">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if projects|length > 0 %}
+                                    {% for project in projects %}
+                                        <tr role="row" class="odd">
+                                            <td >{{ project.getName() }}</td>
+                                            <td>{{ project.getMainImage() }}</td>
+                                            <td>
+                                                {% if project.getImages()|length > 0 %}
+                                                    {% for image in project.getImages()[project.getName()] %}
+                                                        <span class="ml-1">{{ image }}</span>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if project.getDocuments()|length > 0 %}
+                                                    {% for doc in project.getDocuments()[project.getName()] %}
+                                                        <span class="ml-1"><a href="{{ path('viewFile', {'filename': doc, 'id': project.getId() }) }}">{{ doc }}</a></span>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ project.getVideoUrl() }}</td>
+                                            <td>
+                                                <button class="btn btn-icon waves-effect waves-light btn-primary m-b-5"> <i class="fa fa-check"></i> </button>
+                                                <a class="btn btn-icon waves-effect waves-light btn-success m-b-5" href="{{ path('projectFilesEdit', {'id': project.getId()}) }}"> <i class="fa fa-edit"></i> </a>
+                                                <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </button>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr role="row" class="odd">
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                        <td>aucune donnée</td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Required datatable js -->
+    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatable').DataTable();
+        } );
+
+    </script>
+{% endblock %}
+
+

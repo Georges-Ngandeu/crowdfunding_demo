@@ -1,0 +1,18 @@
+
+r	php:S1192Œ"PDefine a constant instead of duplicating this literal "controller_name" 7 times.(ÔÊ‰¬øÿÿÿÿ8ºÒÙŞÂ.
+aphp:S107I"GThis function has 8 parameters, which is greater than the 7 authorized.(šŞ—88³¤ãëÈ.
+@php:S125½"Remove this commented out code.(”¸À³ÿÿÿÿÿ8ºÒÙŞÂ.
+;php:S125†"Remove this commented out code.( ™¥Ú8ºÒÙŞÂ.
+i	php:S1192¾"LDefine a constant instead of duplicating this literal "listProject" 3 times.(ë£8ºÒÙŞÂ.
+M	php:S1481ì"0Remove this unused "$theProject" local variable.(¤€¸á8ºÒÙŞÂ.
+@php:S125û"Remove this commented out code.(¢¹¶éùÿÿÿÿ8ºÒÙŞÂ.
+@php:S125–"Remove this commented out code.(™®üÿÿÿÿ8ºÒÙŞÂ.
+@php:S125Ş"Remove this commented out code.(™®üÿÿÿÿ8ºÒÙŞÂ.
+h	php:S1192Õ"FDefine a constant instead of duplicating this literal "email" 3 times.(¾ëÜåøÿÿÿÿ8†Ó¿ìÈ.
+;php:S125Ú"Remove this commented out code.( ™¥Ú8ºÒÙŞÂ.
+r	php:S1192Œ"PDefine a constant instead of duplicating this literal "AdminController" 7 times.(ÔÊ‰¬øÿÿÿÿ8ºÒÙŞÂ.
+@php:S125®"Remove this commented out code.(”¸À³ÿÿÿÿÿ8ºÒÙŞÂ.
+e	php:S1192r"IDefine a constant instead of duplicating this literal "password" 3 times.(îåÉÖ8ºÒÙŞÂ.
+?php:S125a"Remove this commented out code.(»³Û‘ıÿÿÿÿ8ºÒÙŞÂ.
+:php:S125v"Remove this commented out code.( ™¥Ú8ºÒÙŞÂ.
+@php:S125¬"Remove this commented out code.(™®üÿÿÿÿ8ºÒÙŞÂ.
